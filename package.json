@@ -1,10 +1,20 @@
 {
-  "name": "ionic-occurences",
-  "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "name": "stats-text",
+  "version": "1.0.0",
+  "description": "Ionic/Cordova app to get stats about words of a text",
+  "author": "Jennifer Proust",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/proustibat/stats-text/issues"
+  },
+  "homepage": "https://github.com/proustibat/stats-text#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/proustibat/stats-text.git"
+  },
   "private": true,
   "scripts": {
+    "postversion": "git push origin master --tags",
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
     "lint": "ionic-app-scripts lint",
@@ -24,15 +34,22 @@
     "@ionic-native/splash-screen": "4.3.0",
     "@ionic-native/status-bar": "4.3.0",
     "@ionic/storage": "2.0.1",
+    "faker": "^4.1.0",
     "ionic-angular": "3.7.1",
     "ionicons": "3.0.0",
+    "occurences": "^2.0.1",
     "rxjs": "5.4.3",
     "sw-toolbox": "3.6.0",
     "zone.js": "0.8.18"
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.0.0",
+    "cz-conventional-changelog": "^2.0.0",
     "typescript": "2.3.4"
   },
-  "description": "An Ionic project"
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }

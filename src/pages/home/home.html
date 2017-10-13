@@ -1,14 +1,34 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>
+            Ionic Occurences
+        </ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+    <p>{{text}}</p>
+
+    <hr/>
+
+    <p *ngFor="let item of stats">
+        <ion-badge>{{ item.number }}</ion-badge>
+        {{ item.value }}
+    </p>
+
+    <ion-fab right bottom #fab>
+        <button ion-fab mini><ion-icon name="ios-construct"></ion-icon></button>
+        <ion-fab-list side="left">
+            <button ion-fab mini (click)="sort('desc', fab)"><ion-icon name="ios-trending-down"></ion-icon></button>
+            <button ion-fab mini (click)="sort('asc', fab)"><ion-icon name="ios-trending-up"></ion-icon></button>
+            <button *ngIf="stats !== statsRaw" ion-fab mini (click)="reset(fab)"><ion-icon name="ios-refresh"></ion-icon></button>
+        </ion-fab-list>
+        <ion-fab-list side="top">
+            <button ion-fab mini (click)="swap(fab)"><ion-icon name="ios-swap"></ion-icon></button>
+            <button ion-fab mini (click)="shuffle(fab)"><ion-icon name="ios-shuffle"></ion-icon></button>
+        </ion-fab-list>
+
+    </ion-fab>
+
 </ion-content>

@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Paste your text
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+        <span ion-text color="primary" showWhen="ios">Close</span>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-textarea placeholder="Paste your text here please" [(ngModel)]="text" name="text">
+  </ion-textarea>
+
+
+<ion-row justify-content-center>
+  <button ion-button icon-start (click)="dismiss()">
+    <ion-icon name="close-circle"></ion-icon>
+    Cancel
+  </button>
+  <button ion-button icon-end (click)="dismiss()">
+    Validate
+    <ion-icon name="checkmark-circle-outline"></ion-icon>
+  </button>
+</ion-row>
+</ion-content>
