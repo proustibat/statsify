@@ -8,27 +8,47 @@
 
 <ion-content padding>
 
-    <p>{{text}}</p>
+    <div>
+        <h1 text-uppercase class="data-title">Data</h1>
+        <button class="data-buttons" outline ion-button small (click)="shuffle()"><ion-icon name="shuffle"></ion-icon></button>
+        <button class="data-buttons" outline ion-button small (click)="swap()"><ion-icon name="swap"></ion-icon></button>
+        <p class="text">{{text}}</p>
+    </div>
 
     <hr/>
 
-    <p *ngFor="let item of stats">
-        <ion-badge>{{ item.number }}</ion-badge>
-        {{ item.value }}
-    </p>
+    <div>
+        <h1>Display Results</h1>
+        <h2>Settings</h2>
+        <h3>Words length</h3>
 
-    <ion-fab right bottom #fab>
-        <button ion-fab mini><ion-icon name="ios-construct"></ion-icon></button>
-        <ion-fab-list side="left">
-            <button ion-fab mini (click)="sort('desc', fab)"><ion-icon name="ios-trending-down"></ion-icon></button>
-            <button ion-fab mini (click)="sort('asc', fab)"><ion-icon name="ios-trending-up"></ion-icon></button>
-            <button *ngIf="stats !== statsRaw" ion-fab mini (click)="reset(fab)"><ion-icon name="ios-refresh"></ion-icon></button>
-        </ion-fab-list>
-        <ion-fab-list side="top">
-            <button ion-fab mini (click)="swap(fab)"><ion-icon name="ios-swap"></ion-icon></button>
-            <button ion-fab mini (click)="shuffle(fab)"><ion-icon name="ios-shuffle"></ion-icon></button>
-        </ion-fab-list>
+        <p>Display words from <ion-badge>{{rangeLength.lower}}</ion-badge> to <ion-badge>{{rangeLength.upper}}</ion-badge> characters</p>
+        <ion-range *ngIf="textOccurrences" dualKnobs="true" pin="true" [min]="textOccurrences.smallest[0].length" [max]="textOccurrences.longest[0].length" [(ngModel)]="rangeLength" (ionChange)="setFilteredItems($event)">
+            <ion-label range-left>{{textOccurrences.smallest[0].length}}</ion-label>
+            <ion-label range-right>{{textOccurrences.longest[0].length}}</ion-label>
+        </ion-range>
 
-    </ion-fab>
+        <h3>Order list</h3>
+
+        <button ion-button small (click)="sort('desc')"><ion-icon name="trending-down"></ion-icon></button>
+        <button ion-button small (click)="sort('asc')"><ion-icon name="trending-up"></ion-icon></button>
+
+        <h3>Search a word or chars</h3>
+
+        <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="setFilteredItems($event)" (ionClear)="reset()"></ion-searchbar>
+
+        <h2>Stats</h2>
+        <h3>Global</h3>
+        Here the global stats
+
+        <h3>Details</h3>
+        <p *ngFor="let item of stats">
+            <ion-badge>{{ item.number }}</ion-badge>
+            {{ item.value }}
+        </p>
+
+
+    </div>
+
 
 </ion-content>

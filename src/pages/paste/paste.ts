@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
 
 @IonicPage()
@@ -6,6 +6,7 @@ import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular
     selector: 'page-paste',
     templateUrl: 'paste.html',
 })
+
 export class PastePage {
 
     text:string;
@@ -18,7 +19,7 @@ export class PastePage {
     }
 
     dismiss(validate:boolean = false) {
-        this.viewCtrl.dismiss(this.text || null);
+        this.viewCtrl.dismiss( validate ? this.text : null);
     }
 
 }

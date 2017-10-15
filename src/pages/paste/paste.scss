@@ -1,3 +1,18 @@
 page-paste {
-
+  .paste-container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 20px);
+  }
+  textarea, ion-textarea {
+    user-select: text;
+  }
+  ion-textarea {
+    position: relative;
+    background: white;
+  }
+  textarea {
+    position: relative;
+    height: calc(100% - 20px);
+  }
 }
