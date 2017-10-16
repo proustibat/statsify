@@ -14,14 +14,14 @@
 
 
 <ion-content padding>
-
     <div class="paste-container">
-        <ion-textarea placeholder="Paste your text here please" [(ngModel)]="text" name="text"></ion-textarea>
+        <ion-item>
+            <textarea autosize placeholder="Paste your text here please" [(ngModel)]="text" name="text">.</textarea>
+        </ion-item>
 
         <ion-row justify-content-center>
             <button ion-button icon-start (click)="dismiss()"><ion-icon name="close-circle"></ion-icon>Cancel</button>
             <button ion-button icon-end (click)="dismiss(true)">Validate <ion-icon name="checkmark-circle-outline"></ion-icon></button>
         </ion-row>
-
     </div>
 </ion-content>

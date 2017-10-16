@@ -2,17 +2,22 @@ page-paste {
   .paste-container {
     display: flex;
     flex-direction: column;
-    height: calc(100% - 20px);
+    min-height: 100%;
+    max-height: 100%;
+    height: 100%;
+    justify-content: space-between;
+    ion-label {
+      min-height: 100%;
+      max-height: 100%;
+      overflow: scroll;
+    }
   }
-  textarea, ion-textarea {
-    user-select: text;
-  }
-  ion-textarea {
-    position: relative;
-    background: white;
-  }
+
   textarea {
-    position: relative;
-    height: calc(100% - 20px);
+    width: 100%;
+    resize: none;
+    overflow: scroll;
+    border: none;
+    //user-select: text;
   }
 }

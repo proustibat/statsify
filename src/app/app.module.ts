@@ -9,25 +9,25 @@ import { HomePage } from '../pages/home/home';
 import { PastePage } from '../pages/paste/paste';
 
 @NgModule({
-  declarations: [
-    MyApp,
-    HomePage,
-      PastePage
-  ],
-  imports: [
-    BrowserModule,
-    IonicModule.forRoot(MyApp)
-  ],
-  bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    HomePage,
-      PastePage
-  ],
-  providers: [
-    StatusBar,
-    SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
-  ]
+    declarations: [
+        MyApp,
+        HomePage,
+        PastePage
+    ],
+    imports: [
+        BrowserModule,
+        IonicModule.forRoot(MyApp)
+    ],
+    bootstrap: [IonicApp],
+    entryComponents: [
+        MyApp,
+        HomePage,
+        PastePage
+    ],
+    providers: [
+        StatusBar,
+        SplashScreen,
+        {provide: ErrorHandler, useClass: IonicErrorHandler}
+    ]
 })
 export class AppModule {}

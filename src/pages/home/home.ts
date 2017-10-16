@@ -82,10 +82,6 @@ export class HomePage {
         this.init();
     }
 
-    onRangeChange(event) {
-        console.log(event);
-    }
-
     setFilteredItems() {
         console.log('setFilteredItem');
         this.stats = this.statsRaw;
