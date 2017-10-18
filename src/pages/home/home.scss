@@ -10,4 +10,22 @@ page-home {
   .text {
     user-select: text;
   }
+  .global-stats-table {
+    display: flex;
+    justify-content: center;
+    p {
+      width: 50%;
+      &:first-child {
+        border-right: 1px solid $item-md-divider-color;
+      }
+    }
+
+    .label, .value {
+      display: block;
+      font-size: 1.2rem;
+    }
+    .value {
+      font-size: 2rem;
+    }
+  }
 }

@@ -39,7 +39,26 @@
 
         <h2>Stats</h2>
         <h3>Global</h3>
-        Here the global stats
+        <div class="global-stats-table" *ngIf="textOccurrences && textOccurrences.meta">
+            <p padding-left padding-right>
+                <span class="label" text-uppercase>Total<br/>Words</span>
+                <span class="value" padding-top>{{textOccurrences.meta.totalWords}}</span>
+            </p>
+            <p padding-left padding-right>
+                <span class="label" text-uppercase>Different<br/>Words</span>
+                <span class="value" padding-top>{{textOccurrences.meta.differentWords}}</span>
+            </p>
+        </div>
+        <div class="global-stats-table" *ngIf="textOccurrences && textOccurrences.meta">
+            <p padding-left padding-right>
+                <span class="label" text-uppercase>Characters<br/>(with spaces)</span>
+                <span class="value" padding-top>{{textOccurrences.meta.charsWS}}</span>
+            </p>
+            <p padding-left padding-right>
+                <span class="label" text-uppercase>Characters<br/>(no space)</span>
+                <span class="value" padding-top>{{textOccurrences.meta.charsNS}}</span>
+            </p>
+        </div>
 
         <h3>Details</h3>
         <p *ngFor="let item of stats">
