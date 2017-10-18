@@ -10,6 +10,7 @@ page-home {
   .text {
     user-select: text;
     font-family: $font-family-text;
+    white-space: pre-wrap;
   }
   .global-stats-table {
     .label, .value {
@@ -18,7 +19,6 @@ page-home {
     }
     .value {
       font-size: 2.5rem;
-      //background-color: color($colors, 'dark');
     }
   }
 }

@@ -19,7 +19,7 @@ page-paste {
     overflow: scroll;
     border: none;
     font-family: $font-family-text;
-    //user-select: text;
+    user-select: text;
     color: color($colors, 'secondary');
   }
 }
