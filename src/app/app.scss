@@ -14,3 +14,16 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+
+h1, h2, h3, h4, h5, h6 {
+  color: color($colors, 'primary');
+}
+
+ion-content.content {
+  color: color($colors, 'secondary');
+}
+
+h1, h2 {
+  text-transform: uppercase;
+}

@@ -9,23 +9,16 @@ page-home {
   }
   .text {
     user-select: text;
+    font-family: $font-family-text;
   }
   .global-stats-table {
-    display: flex;
-    justify-content: center;
-    p {
-      width: 50%;
-      &:first-child {
-        border-right: 1px solid $item-md-divider-color;
-      }
-    }
-
     .label, .value {
       display: block;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
     .value {
-      font-size: 2rem;
+      font-size: 2.5rem;
+      //background-color: color($colors, 'dark');
     }
   }
 }

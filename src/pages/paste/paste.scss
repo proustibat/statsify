@@ -18,6 +18,8 @@ page-paste {
     resize: none;
     overflow: scroll;
     border: none;
+    font-family: $font-family-text;
     //user-select: text;
+    color: color($colors, 'secondary');
   }
 }

@@ -9,7 +9,7 @@ $font-path: "../assets/fonts";
 // The app direction is used to include
 // rtl styles in your app. For more info, please see:
 // http://ionicframework.com/docs/theming/rtl-support/
-$app-direction: ltr;
+$app-direction: multi;
 
 
 @import "ionic.globals";
@@ -34,13 +34,71 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #488aff,
-  secondary:  #32db64,
-  danger:     #f53d3d,
-  light:      #f4f4f4,
-  dark:       #222
+        //primary:      #1D1D1D,
+        //secondary:    #202020,
+        //tertiary:     #232323,
+        //interaction:  #262626,
+        //
+        //light:        #676958,
+        //dark:         #292929,
+        //
+        //danger:       #8A0401,
+
+        primary:    #091540,
+        secondary:  #1D3461,
+        tertiary:       #7692FF,
+        interaction:      #084887,
+
+        danger:     #BF1A2F,
+        light:        #D3E7FF,
+        dark:         #ABD2FA,
+
+        //primary:    #272727,
+        //secondary:  #A1B294,
+        //danger:     #4A051C,
+        //light:      #FCFCFC,
+        //dark:       #5B7B7A
+
+        //primary:      #100B00,
+        //secondary:    #CC9B33,
+        //interaction:  #CCBFA5,
+        //danger:       #BF1A2F,
+        //light:        #FFEDC6,
+        //dark:         #3A311F
 );
 
+
+$h1-font-size: 2rem;
+$h2-font-size: 1.6rem;
+$h3-font-size: 1.4rem;
+$h4-font-size: 1.2rem;
+$h5-font-size: 1rem;
+$h6-font-size: 0.8rem;
+
+$range-ios-knob-background-color: color($colors, 'interaction');
+$grid-padding-width:0px;
+
+$searchbar-ios-background-color: opacify(color($colors, 'interaction'), 0.01 );
+$searchbar-md-background-color: opacify(color($colors, 'interaction'), 0.01 );
+$searchbar-wp-background-color: opacify(color($colors, 'interaction'), 0.01 );
+$searchbar-ios-input-clear-icon-color: color($colors, 'interaction');
+$searchbar-md-input-clear-icon-color: color($colors, 'interaction');
+$searchbar-wp-input-clear-icon-color: color($colors, 'interaction');
+$searchbar-ios-input-search-icon-color: color($colors, 'interaction');
+$searchbar-md-input-search-icon-color: color($colors, 'interaction');
+$searchbar-wp-input-search-icon-color: color($colors, 'interaction');
+$searchbar-ios-input-text-color: color($colors, 'interaction');
+$searchbar-md-input-text-color: color($colors, 'interaction');
+$searchbar-wp-input-text-color: color($colors, 'interaction');
+$searchbar-ios-input-placeholder-color: color($colors, 'interaction');
+$searchbar-md-input-placeholder-color: color($colors, 'interaction');
+$searchbar-wp-input-placeholder-color: color($colors, 'interaction');
+
+
+
+$toolbar-ios-title-text-color: color($colors, 'primary');
+$toolbar-md-title-text-color: color($colors, 'primary');
+$toolbar-wp-title-text-color	: color($colors, 'primary');
 
 // App iOS Variables
 // --------------------------------------------------
@@ -86,3 +144,12 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600,600i,700,700i');
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:500,700&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Lato&subset=latin-ext');
+
+$font-family-text: 'Crimson Text', serif;
+$font-family-base: 'Lato', 'Work Sans', 'Roboto', sans-serif;
+$font-family-md-base: $font-family-base;
+$font-family-wp-base: $font-family-base;

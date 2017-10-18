@@ -45,8 +45,9 @@ export class HomePage {
             sensitiveCase:true,
             ignored: []
         });
-        this.rangeLength.lower = this.textOccurrences.smallest[0].length;
-        this.rangeLength.upper = this.textOccurrences.longest[0].length;
+        console.log(this.textOccurrences);
+        this.rangeLength.lower = this.textOccurrences.smallest[0] ? this.textOccurrences.smallest[0].length : 0;
+        this.rangeLength.upper = this.textOccurrences.longest[0] ? this.textOccurrences.longest[0].length : 0;
         this.statsRaw = Object.keys(this.textOccurrences.stats).map(key => {
             return { value: key, number: this.textOccurrences.stats[key] };
         });
@@ -87,7 +88,8 @@ export class HomePage {
         this.stats = this.statsRaw;
         this.stats = this.stats.filter((item, index) => {
             let searchCond = item.value.toLowerCase().includes(this.searchTerm.toLowerCase());
-            let rangeCond = item.value.length >= this.rangeLength.lower && item.value.length <=this.rangeLength.upper;
+            let lengthOfItem = item.value.length ? item.value.length : 0;
+            let rangeCond = lengthOfItem >= this.rangeLength.lower && lengthOfItem <=this.rangeLength.upper;
             return searchCond && rangeCond;
         });
     }

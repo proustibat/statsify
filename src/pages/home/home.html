@@ -1,6 +1,6 @@
 <ion-header>
     <ion-navbar>
-        <ion-title>
+        <ion-title color="primary">
             Ionic Occurences
         </ion-title>
     </ion-navbar>
@@ -10,28 +10,27 @@
 
     <div>
         <h1 text-uppercase class="data-title">Data</h1>
-        <button class="data-buttons" outline ion-button small (click)="shuffle()"><ion-icon name="shuffle"></ion-icon></button>
-        <button class="data-buttons" outline ion-button small (click)="swap()"><ion-icon name="swap"></ion-icon></button>
-        <p class="text">{{text}}</p>
+        <button class="data-buttons" outline color="interaction" ion-button small (click)="shuffle()"><ion-icon name="shuffle"></ion-icon></button>
+        <button class="data-buttons" outline color="interaction" ion-button small (click)="swap()"><ion-icon name="swap"></ion-icon></button>
+        <p class="text" text-justify>{{text}}</p>
     </div>
 
-    <hr/>
 
     <div>
         <h1>Display Results</h1>
         <h2>Settings</h2>
         <h3>Words length</h3>
 
-        <p>Display words from <ion-badge>{{rangeLength.lower}}</ion-badge> to <ion-badge>{{rangeLength.upper}}</ion-badge> characters</p>
-        <ion-range *ngIf="textOccurrences" dualKnobs="true" pin="true" [min]="textOccurrences.smallest[0].length" [max]="textOccurrences.longest[0].length" [(ngModel)]="rangeLength" (ionChange)="setFilteredItems($event)">
-            <ion-label range-left>{{textOccurrences.smallest[0].length}}</ion-label>
-            <ion-label range-right>{{textOccurrences.longest[0].length}}</ion-label>
+        <p>Display words from <ion-badge color="light">{{rangeLength.lower}}</ion-badge> to <ion-badge color="light">{{rangeLength.upper}}</ion-badge> characters</p>
+        <ion-range color="interaction" *ngIf="textOccurrences" dualKnobs="true" pin="true" [min]="textOccurrences.smallest[0] ? textOccurrences.smallest[0].length : 0" [max]="textOccurrences.longest[0] ? textOccurrences.longest[0].length : 0" [(ngModel)]="rangeLength" (ionChange)="setFilteredItems($event)">
+            <ion-label range-left>{{textOccurrences.smallest[0] ? textOccurrences.smallest[0].length : 0}}</ion-label>
+            <ion-label range-right>{{textOccurrences.longest[0] ? textOccurrences.longest[0].length : 0}}</ion-label>
         </ion-range>
 
         <h3>Order list</h3>
 
-        <button ion-button small (click)="sort('desc')"><ion-icon name="trending-down"></ion-icon></button>
-        <button ion-button small (click)="sort('asc')"><ion-icon name="trending-up"></ion-icon></button>
+        <button ion-button small color="interaction" (click)="sort('desc')"><ion-icon name="trending-down"></ion-icon></button>
+        <button ion-button small color="interaction" (click)="sort('asc')"><ion-icon name="trending-up"></ion-icon></button>
 
         <h3>Search a word or chars</h3>
 
@@ -39,30 +38,29 @@
 
         <h2>Stats</h2>
         <h3>Global</h3>
-        <div class="global-stats-table" *ngIf="textOccurrences && textOccurrences.meta">
-            <p padding-left padding-right>
+        <ion-row class="global-stats-table" *ngIf="textOccurrences && textOccurrences.meta">
+            <ion-col col-2 text-center>
+                <span class="value"><ion-badge margin-bottom color="dark">{{textOccurrences.meta.totalWords}}</ion-badge></span>
                 <span class="label" text-uppercase>Total<br/>Words</span>
-                <span class="value" padding-top>{{textOccurrences.meta.totalWords}}</span>
-            </p>
-            <p padding-left padding-right>
+            </ion-col>
+            <ion-col col-3 text-center>
+                <span class="value"><ion-badge margin-bottom color="dark">{{textOccurrences.meta.differentWords}}</ion-badge></span>
                 <span class="label" text-uppercase>Different<br/>Words</span>
-                <span class="value" padding-top>{{textOccurrences.meta.differentWords}}</span>
-            </p>
-        </div>
-        <div class="global-stats-table" *ngIf="textOccurrences && textOccurrences.meta">
-            <p padding-left padding-right>
+            </ion-col>
+
+            <ion-col col-4 text-center>
+                <span class="value"><ion-badge margin-bottom color="dark">{{textOccurrences.meta.charsWS}}</ion-badge></span>
                 <span class="label" text-uppercase>Characters<br/>(with spaces)</span>
-                <span class="value" padding-top>{{textOccurrences.meta.charsWS}}</span>
-            </p>
-            <p padding-left padding-right>
+            </ion-col>
+            <ion-col col-3 text-center>
+                <span class="value"><ion-badge margin-bottom color="dark">{{textOccurrences.meta.charsNS}}</ion-badge></span>
                 <span class="label" text-uppercase>Characters<br/>(no space)</span>
-                <span class="value" padding-top>{{textOccurrences.meta.charsNS}}</span>
-            </p>
-        </div>
+            </ion-col>
+        </ion-row>
 
         <h3>Details</h3>
         <p *ngFor="let item of stats">
-            <ion-badge>{{ item.number }}</ion-badge>
+            <ion-badge color="dark">{{ item.number }}</ion-badge>
             {{ item.value }}
         </p>
 

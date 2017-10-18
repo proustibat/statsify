@@ -4,9 +4,9 @@
             Paste your text
         </ion-title>
         <ion-buttons start>
-            <button ion-button (click)="dismiss()">
-                <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
-                <span ion-text color="primary" showWhen="ios">Close</span>
+            <button color="interaction" ion-button (click)="dismiss()">
+                <ion-icon color="interaction" name="close"></ion-icon>
+                <!--<span ion-text color="interaction" showWhen="ios">Close</span>-->
             </button>
         </ion-buttons>
     </ion-toolbar>
@@ -20,8 +20,8 @@
         </ion-item>
 
         <ion-row justify-content-center>
-            <button ion-button icon-start (click)="dismiss()"><ion-icon name="close-circle"></ion-icon>Cancel</button>
-            <button ion-button icon-end (click)="dismiss(true)">Validate <ion-icon name="checkmark-circle-outline"></ion-icon></button>
+            <button color="interaction" ion-button icon-start (click)="dismiss()"><ion-icon name="close-circle"></ion-icon>Cancel</button>
+            <button color="interaction" ion-button icon-end (click)="dismiss(true)">Validate <ion-icon name="checkmark-circle-outline"></ion-icon></button>
         </ion-row>
     </div>
 </ion-content>
