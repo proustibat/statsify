@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 import { ModalController, NavController } from 'ionic-angular';
 import * as Occurences from 'Occurences';
 import * as Faker from 'faker';
@@ -8,6 +8,8 @@ import {PastePage} from "../paste/paste";
     selector: 'page-home',
     templateUrl: 'home.html'
 })
+
+
 export class HomePage {
 
     text:string;
@@ -21,8 +23,9 @@ export class HomePage {
 
     displayIsOrdered:boolean = false;
 
-    constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
+    readMoreOpened:boolean = false;
 
+    constructor(public navCtrl: NavController, public modalCtrl: ModalController, public element:ElementRef) {
     }
 
     ionViewDidLoad() {
@@ -92,6 +95,11 @@ export class HomePage {
             let rangeCond = lengthOfItem >= this.rangeLength.lower && lengthOfItem <=this.rangeLength.upper;
             return searchCond && rangeCond;
         });
+    }
+
+    onReadMore(event:Event) {
+        console.log(event);
+        this.readMoreOpened = !this.readMoreOpened;
     }
 
 
