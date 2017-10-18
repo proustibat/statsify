@@ -22,7 +22,14 @@ $app-direction: multi;
 // To view all the possible Ionic variables, see:
 // http://ionicframework.com/docs/theming/overriding-ionic-variables/
 
+$h1-font-size: 2rem;
+$h2-font-size: 1.6rem;
+$h3-font-size: 1.4rem;
+$h4-font-size: 1.2rem;
+$h5-font-size: 1rem;
+$h6-font-size: 0.8rem;
 
+$grid-padding-width:0px;
 
 
 // Named Color Variables
@@ -34,76 +41,30 @@ $app-direction: multi;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-        //primary:      #1D1D1D,
-        //secondary:    #202020,
-        //tertiary:     #232323,
-        //interaction:  #262626,
-        //
-        //light:        #676958,
-        //dark:         #292929,
-        //
-        //danger:       #8A0401,
-
         primary:    #091540,
         secondary:  #1D3461,
         tertiary:       #7692FF,
         interaction:      #084887,
-
         danger:     #BF1A2F,
         light:        #D3E7FF,
         dark:         #ABD2FA,
 
-        //primary:    #272727,
-        //secondary:  #A1B294,
-        //danger:     #4A051C,
-        //light:      #FCFCFC,
-        //dark:       #5B7B7A
-
-        //primary:      #100B00,
-        //secondary:    #CC9B33,
-        //interaction:  #CCBFA5,
-        //danger:       #BF1A2F,
-        //light:        #FFEDC6,
-        //dark:         #3A311F
 );
 
-
-$h1-font-size: 2rem;
-$h2-font-size: 1.6rem;
-$h3-font-size: 1.4rem;
-$h4-font-size: 1.2rem;
-$h5-font-size: 1rem;
-$h6-font-size: 0.8rem;
-
-$range-ios-knob-background-color: color($colors, 'interaction');
-$grid-padding-width:0px;
-
-$searchbar-ios-background-color: opacify(color($colors, 'interaction'), 0.01 );
-$searchbar-md-background-color: opacify(color($colors, 'interaction'), 0.01 );
-$searchbar-wp-background-color: opacify(color($colors, 'interaction'), 0.01 );
-$searchbar-ios-input-clear-icon-color: color($colors, 'interaction');
-$searchbar-md-input-clear-icon-color: color($colors, 'interaction');
-$searchbar-wp-input-clear-icon-color: color($colors, 'interaction');
-$searchbar-ios-input-search-icon-color: color($colors, 'interaction');
-$searchbar-md-input-search-icon-color: color($colors, 'interaction');
-$searchbar-wp-input-search-icon-color: color($colors, 'interaction');
-$searchbar-ios-input-text-color: color($colors, 'interaction');
-$searchbar-md-input-text-color: color($colors, 'interaction');
-$searchbar-wp-input-text-color: color($colors, 'interaction');
-$searchbar-ios-input-placeholder-color: color($colors, 'interaction');
-$searchbar-md-input-placeholder-color: color($colors, 'interaction');
-$searchbar-wp-input-placeholder-color: color($colors, 'interaction');
-
-
-
-$toolbar-ios-title-text-color: color($colors, 'primary');
-$toolbar-md-title-text-color: color($colors, 'primary');
-$toolbar-wp-title-text-color	: color($colors, 'primary');
+$text-color: color($colors, 'secondary');
 
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
 
+$range-ios-knob-background-color:       color($colors, 'interaction');
+$searchbar-ios-background-color:        color($colors, 'interaction');
+$searchbar-ios-input-text-color:        color($colors, 'interaction');
+$searchbar-ios-input-clear-icon-color:  color($colors, 'interaction');
+$searchbar-ios-input-search-icon-color: color($colors, 'interaction');
+$searchbar-ios-input-placeholder-color: color($colors, 'interaction');
+
+$toolbar-ios-title-text-color:          color($colors, 'primary');
 
 
 
@@ -111,6 +72,14 @@ $toolbar-wp-title-text-color	: color($colors, 'primary');
 // --------------------------------------------------
 // Material Design only Sass variables can go here
 
+$range-md-knob-background-color:        $range-ios-knob-background-color;
+$searchbar-md-background-color:         $searchbar-ios-background-color;
+$searchbar-md-input-clear-icon-color:   $searchbar-ios-input-clear-icon-color;
+$searchbar-md-input-search-icon-color:  $searchbar-ios-input-search-icon-color;
+$searchbar-md-input-text-color:         $searchbar-ios-input-text-color;
+$searchbar-md-input-placeholder-color:  $searchbar-ios-input-placeholder-color;
+
+$toolbar-md-title-text-color:           $toolbar-ios-title-text-color;
 
 
 
@@ -118,6 +87,14 @@ $toolbar-wp-title-text-color	: color($colors, 'primary');
 // --------------------------------------------------
 // Windows only Sass variables can go here
 
+$range-wp-knob-background-color:        $range-ios-knob-background-color;
+$searchbar-wp-background-color:         $searchbar-ios-background-color;
+$searchbar-wp-input-clear-icon-color:   $searchbar-ios-input-clear-icon-color;
+$searchbar-wp-input-search-icon-color:  $searchbar-ios-input-search-icon-color;
+$searchbar-wp-input-text-color:         $searchbar-ios-input-text-color;
+$searchbar-wp-input-placeholder-color:  $searchbar-ios-input-placeholder-color;
+
+$toolbar-wp-title-text-color:           $toolbar-ios-title-text-color;
 
 
 
