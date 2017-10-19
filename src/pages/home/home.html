@@ -75,10 +75,49 @@
                         </ion-range>
                     </div>
 
-                    <hr has-transition data-transition-delay-450/>
+                    <div class="settings-occurrences-times"
+                         has-transition
+                         data-transition-delay-450
+                         no-margin
+                         no-padding>
+                        <ion-row align-items-start justify-content-start>
+                            <ion-col col-auto>Display words that appear&nbsp;</ion-col>
+                            <ion-col col-auto>
+                                <ion-select item-start
+                                            text-center
+                                            no-padding
+                                            no-margin
+                                            [(ngModel)]="timesSettingType"
+                                            (ionChange)="occurrencesTimesChosen()"
+                                            interface="action-sheet">
+                                    <ion-option *ngFor="let valType of timesSettings('type')">{{valType}}</ion-option>
+                                </ion-select>
+                            </ion-col>
+                            <ion-col col-auto>&nbsp;than&nbsp;</ion-col>
+                            <ion-col col-auto>
+                                <ion-select item-start
+                                            text-center
+                                            no-padding
+                                            no-margin
+                                            [(ngModel)]="timesSettingNb"
+                                            (ionChange)="occurrencesTimesChosen()"
+                                            interface="action-sheet">
+                                    <ion-option *ngFor="let valNb of timesSettings('nb')">{{valNb}}</ion-option>
+                                </ion-select>
+                            </ion-col >
+                            <ion-col col-auto>&nbsp;times </ion-col>
+                            <ion-col col-auto>&nbsp;in</ion-col>
+                            <ion-col col-auto>&nbsp;the</ion-col>
+                            <ion-col col-auto>&nbsp;text</ion-col>
+                        </ion-row>
+                    </div>
+
+                    <hr has-transition data-transition-delay-550/>
                 </div>
             </div>
         </div>
+
+
 
 
         <p *ngFor="let item of stats">

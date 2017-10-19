@@ -21,6 +21,9 @@ export class HomePage {
 
     searchTerm: string = '';
 
+    timesSettingType: string = "more";
+    timesSettingNb: number = 1;
+
     displayIsOrdered:boolean = false;
 
     readMoreOpened:boolean = false;
@@ -92,6 +95,39 @@ export class HomePage {
             let rangeCond = lengthOfItem >= this.rangeLength.lower && lengthOfItem <=this.rangeLength.upper;
             return searchCond && rangeCond;
         });
+    }
+
+    timesSettings(setting:string): string[] {
+        let list:string[] = [];
+
+        if(setting === 'type') {
+            list = [
+                "more",
+                "less"
+            ];
+        }
+        else {
+            if(this.stats) {
+                let limits={max:0, min:0};
+                Object.keys(this.stats).map( k => {
+                    limits.max = Math.max(limits.max, this.stats[k].number);
+                    limits.min = Math.min(limits.max, this.stats[k].number);
+                });
+                for (let i=limits.min, l:number=limits.max; i<=l;i++ ) {
+                    list.push((i).toString())
+                }
+            }
+            else {
+                list = [(0).toString()]
+            }
+
+        }
+        return list;
+    }
+
+    occurrencesTimesChosen(): void {
+        console.log(this.timesSettingType);
+        console.log(this.timesSettingNb);
     }
 
     onReadMore(event:Event) {
