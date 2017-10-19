@@ -128,6 +128,7 @@ export class HomePage {
     occurrencesTimesChosen(): void {
         console.log(this.timesSettingType);
         console.log(this.timesSettingNb);
+        //TODO
     }
 
     onReadMore(event:Event) {

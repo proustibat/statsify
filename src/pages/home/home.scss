@@ -16,23 +16,22 @@ page-home {
     .label, .value {
       display: block;
       font-size: 1.1rem;
+      line-height: inherit;
     }
     .value {
       font-size: 2.5rem;
     }
   }
 
-  .details {
-    button {
-      vertical-align: middle;
-    }
-  }
-
-
   .read-more-wrap {
-    &.closed .read-more-target{
+    .read-more-target {
+
+    }
+    &.closed .read-more-target {
       overflow: hidden;
       max-height: 0;
+      padding:0;
+      border:none;
 
       ion-searchbar {
         min-height: 0;
@@ -51,9 +50,10 @@ page-home {
     }
 
     &.opened .read-more-target{
-
       overflow: visible;
       max-height: 999em;
+      padding: $content-padding;
+      border: 1px dashed color($colors, 'interaction');
 
       // DISPLAY
       ion-searchbar {
