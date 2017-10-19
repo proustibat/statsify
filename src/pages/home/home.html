@@ -39,43 +39,46 @@
 
         <div class="details" padding-top>
             <h1>Details</h1>
-
-            <input type="checkbox" class="read-more-state" id="settings-details" />
-            <label for="settings-details" class="read-more-trigger" margin-bottom (click)="onReadMore($event)"></label>
-
-            <div class="read-more-wrap">
+            <button class="read-more-button" small ion-button color="interaction" (click)="onReadMore($event)">
+                {{readMoreOpened ? 'Close display settings' : 'Show display settings'}}
+            </button>
+            <div class="read-more-wrap" [ngClass]="readMoreOpened ? 'opened' : 'closed'">
                 <div class="read-more-target" [ngClass]="readMoreOpened ? 'opened' : 'closed'">
-                    <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="setFilteredItems($event)" (ionClear)="reset()"></ion-searchbar>
+                    <ion-searchbar
+                            has-transition
+                            [(ngModel)]="searchTerm"
+                            (ionInput)="setFilteredItems($event)"
+                            (ionClear)="reset()"></ion-searchbar>
 
-                    <p class="order-buttons">Order list by occurrences
+                    <p class="order-buttons"
+                       has-transition
+                       data-transition-delay-150>Order list by occurrences
                         <button ion-button small color="interaction" (click)="sort('desc')"><ion-icon name="trending-down"></ion-icon></button>
                         <button ion-button small color="interaction" (click)="sort('asc')"><ion-icon name="trending-up"></ion-icon></button>
                     </p>
 
-                    <p class="filter-length" no-padding no-margin padding-top>Display words from <ion-badge color="light">{{rangeLength.lower}}</ion-badge> to <ion-badge color="light">{{rangeLength.upper}}</ion-badge> characters.</p>
+                    <div class="filter-length"
+                         has-transition
+                         data-transition-delay-250>
+                        <p no-padding no-margin padding-top>Display words from <ion-badge color="light">{{rangeLength.lower}}</ion-badge> to <ion-badge color="light">{{rangeLength.upper}}</ion-badge> characters.</p>
+                    </div>
 
-                    <div class="range-occurences" no-padding no-margin>
+                    <div class="range-occurences"
+                         no-padding
+                         no-margin
+                         has-transition
+                         has-transition-content
+                         data-transition-delay-350-content>
                         <ion-range no-padding color="interaction" *ngIf="textOccurrences" dualKnobs="true" [min]="textOccurrences.smallest[0] ? textOccurrences.smallest[0].length : 0" [max]="textOccurrences.longest[0] ? textOccurrences.longest[0].length : 0" [(ngModel)]="rangeLength" (ionChange)="setFilteredItems($event)">
                             <ion-label range-left>{{textOccurrences.smallest[0] ? textOccurrences.smallest[0].length : 0}}</ion-label>
                             <ion-label range-right>{{textOccurrences.longest[0] ? textOccurrences.longest[0].length : 0}}</ion-label>
                         </ion-range>
                     </div>
 
-                    <!--<div padding-top>-->
-                        <!--<ion-select [(ngModel)]="gender">-->
-                            <!--<ion-option value="f">Female</ion-option>-->
-                            <!--<ion-option value="m">Male</ion-option>-->
-                        <!--</ion-select>-->
-                    <!--</div>-->
-
-                    <hr/>
+                    <hr has-transition data-transition-delay-450/>
                 </div>
             </div>
-
         </div>
-
-
-
 
 
         <p *ngFor="let item of stats">

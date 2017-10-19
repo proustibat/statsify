@@ -1,4 +1,4 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
+import {Component} from '@angular/core';
 import { ModalController, NavController } from 'ionic-angular';
 import * as Occurences from 'Occurences';
 import * as Faker from 'faker';
@@ -25,7 +25,7 @@ export class HomePage {
 
     readMoreOpened:boolean = false;
 
-    constructor(public navCtrl: NavController, public modalCtrl: ModalController, public element:ElementRef) {
+    constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
     }
 
     ionViewDidLoad() {
@@ -48,7 +48,6 @@ export class HomePage {
             sensitiveCase:true,
             ignored: []
         });
-        console.log(this.textOccurrences);
         this.rangeLength.lower = this.textOccurrences.smallest[0] ? this.textOccurrences.smallest[0].length : 0;
         this.rangeLength.upper = this.textOccurrences.longest[0] ? this.textOccurrences.longest[0].length : 0;
         this.statsRaw = Object.keys(this.textOccurrences.stats).map(key => {
@@ -74,7 +73,6 @@ export class HomePage {
         let modal = this.modalCtrl.create(PastePage);
         modal.onDidDismiss( data => {
             if(data) {
-                console.log(data);
                 this.text = data;
                 this.createStats();
             }
@@ -87,7 +85,6 @@ export class HomePage {
     }
 
     setFilteredItems() {
-        console.log('setFilteredItem');
         this.stats = this.statsRaw;
         this.stats = this.stats.filter((item, index) => {
             let searchCond = item.value.toLowerCase().includes(this.searchTerm.toLowerCase());
@@ -98,7 +95,6 @@ export class HomePage {
     }
 
     onReadMore(event:Event) {
-        console.log(event);
         this.readMoreOpened = !this.readMoreOpened;
     }
 

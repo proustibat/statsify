@@ -29,161 +29,80 @@ page-home {
   }
 
 
-
-  .read-more-state {
-    display: none;
-  }
-
-  .read-more-target {
-    opacity: 0;
-    max-height: 0;
-    font-size: 0;
-
-    ion-searchbar {
-      max-height: 0;
-      min-height: 0;
-      border: none;
-    }
-
-    .searchbar-input {
-      min-height: 0;
-      max-height: 0;
-      height: 0;
-    }
-
-    .searchbar-input-container {
+  .read-more-wrap {
+    &.closed .read-more-target{
       overflow: hidden;
-    }
-
-    .order-buttons {
-      position: relative;
       max-height: 0;
-      overflow: hidden;
-      button {
-        opacity: 0;
-      }
-    }
-
-    .filter-length {
-      font-size: 0;
-      ion-badge {
-        opacity: 0;
-      }
-    }
-
-    .range-occurences {
-      opacity: 0;
-
-      ion-label {
-        font-size: 0;
-        opacity:0;
-      }
-      .range-slider {
-        opacity: 0;
-        flex-grow: 0;
-        flex-shrink: 0;
-      }
-    }
-
-    &.opened {
-      transition: height .25s ease, opacity .5s ease, width .5s ease, font-size .1s ease;
 
       ion-searchbar {
-        transition: all .25s ease;
+        min-height: 0;
+        height: 0;
       }
-      .searchbar-input {
-        transition: all .15s .15s ease;
-      }
-
-      .order-buttons {
-        transition: all .25s .1s ease;
-        button {
-          transition: opacity .25s .3s ease;
-        }
+      .searchbar-input-container,
+      [has-transition] {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
       }
 
-      .filter-length {
-        transition: all .25s .3s ease;
-        ion-badge {
-          transition: opacity .3s .5s ease;
-        }
-      }
-
-      .range-occurences {
-        transition: opacity .3s 1s ease;
-        ion-label {
-          transition: font-size .3s 1s ease;
-        }
-        .range-slider {
-          transition: flex-shrink .3s 1s ease, flex-grow .3s 1s ease, opacity .5s 1s ease;
-        }
+      [has-transition-content] * {
+        opacity: 0;
       }
     }
-  }
-  .read-more-state:checked ~ .read-more-wrap .read-more-target {
-    opacity: 1;
-    font-size: inherit;
-    max-height: 999em;
-    max-width: 999em;
 
-    ion-searchbar {
+    &.opened .read-more-target{
+
+      overflow: visible;
       max-height: 999em;
-      min-height: 44px;
-      border: inherit;
-    }
 
-    .searchbar-input {
-      max-height: 999em;
-      height: 3rem;
-    }
+      // DISPLAY
+      ion-searchbar {
+        min-height: 44px;
+        height: auto;
+      }
 
-    .order-buttons {
-      max-height: unset;
-      button {
+      .searchbar-input-container,
+      [has-transition] {
+        opacity: 1;
+        max-height: 999em;
+        overflow: visible;
+      }
+
+      [has-transition-content] * {
         opacity: 1;
       }
-    }
 
+      // TRANSITIONS
+      .searchbar-input-container,
+      [has-transition],
+      [has-transition-content] *{
+        transition: opacity 250ms ease-in-out;
+      }
 
-    .filter-length {
-      font-size: inherit;
-      ion-badge {
-        opacity: 1;
+      $max: 1000;
+      $step: 5;
+      @for $i from $step through $max {
+        $value: ($i % $max);
+        @if $i%50 == 0 {
+          $delay: ($i) * 1ms;
+          [data-transition-delay-#{$value}] {
+            .searchbar-input-container,
+            &ion-searchbar {
+              transition-delay: $delay;
+            }
+            transition-delay: $delay;
+          }
+          [data-transition-delay-#{$value}-content] {
+            .searchbar-input-container *,
+            &ion-searchbar *{
+              transition-delay: $delay;
+            }
+            * {
+              transition-delay: $delay;
+            }
+          }
+        }
       }
     }
-
-    .range-occurences {
-      opacity: 1;
-      ion-label {
-        opacity: 1;
-        font-size: inherit;
-      }
-      .range-slider {
-        opacity: 1;
-        flex-grow: 1;
-        flex-shrink: 1;
-      }
-    }
-  }
-
-
-
-  .read-more-state ~ .read-more-trigger:before {
-    content: 'Show display settings';
-  }
-
-  .read-more-state:checked ~ .read-more-trigger:before {
-    content: 'Hide display settings';
-  }
-
-  .read-more-trigger {
-    cursor: pointer;
-    display: inline-block;
-    padding: 0 .5em;
-    color: #666;
-    font-size: .9em;
-    line-height: 2;
-    border: 1px solid #ddd;
-    border-radius: .25em;
   }
 }
