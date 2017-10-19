@@ -109,7 +109,7 @@ export class HomePage {
         else {
             if(this.stats) {
                 let limits={max:0, min:0};
-                Object.keys(this.stats).map( k => {
+                Object.keys(this.stats).forEach( k => {
                     limits.max = Math.max(limits.max, this.stats[k].number);
                     limits.min = Math.min(limits.max, this.stats[k].number);
                 });
