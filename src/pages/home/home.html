@@ -47,15 +47,23 @@
     </ion-row>
 
     <h1>Details</h1>
-    <button class="read-more-button"
-            ion-button
-            small
-            color="interaction"
-            no-margin
-            margin-bottom
-            (click)="onReadMore($event)">
-        {{readMoreOpened ? 'Close display settings' : 'Show display settings'}}
-    </button>
+    <ion-row align-items-center margin-bottom>
+        <ion-col>
+            <button class="read-more-button"
+                    ion-button
+                    small
+                    color="interaction"
+                    no-margin
+                    (click)="onReadMore($event)">
+                {{readMoreOpened ? 'Close display settings' : 'Show display settings'}}
+            </button>
+        </ion-col>
+        <ion-col *ngIf="displayedWords">
+            Displaying: {{displayedWords}} words
+        </ion-col>
+    </ion-row>
+
+
     <div class="read-more-wrap" [ngClass]="readMoreOpened ? 'opened' : 'closed'">
         <div class="read-more-target"
              padding
@@ -66,7 +74,7 @@
                     margin-bottom
                     [(ngModel)]="searchTerm"
                     (ionInput)="setFilteredItems($event)"
-                    (ionClear)="reset()"></ion-searchbar>
+                    (ionClear)="setFilteredItems($event)"></ion-searchbar>
 
             <p class="order-buttons"
                has-transition
@@ -140,7 +148,10 @@
                             <ion-option *ngFor="let valNb of timesSettings('nb')">{{valNb}}</ion-option>
                         </ion-select>&nbsp;
                     </ion-col >
-                    <ion-col col-auto>times &nbsp;</ion-col>
+                    <ion-col col-auto>times&nbsp;</ion-col>
+                    <ion-col col-auto>&nbsp;(or&nbsp;</ion-col>
+                    <ion-col col-auto>&nbsp;equal&nbsp;</ion-col>
+                    <ion-col col-auto>&nbsp;to)&nbsp;</ion-col>
                     <ion-col col-auto>in&nbsp;</ion-col>
                     <ion-col col-auto>the&nbsp;</ion-col>
                     <ion-col col-auto>text.</ion-col>
@@ -149,10 +160,12 @@
         </div>
     </div>
 
-        <ion-item *ngFor="let item of stats" padding-horizontal>
-            <span>{{ item.value }}</span>
-            <ion-badge color="dark" item-end>{{ item.number }}</ion-badge>
-        </ion-item>
+    <ion-item *ngFor="let item of stats" padding-horizontal>
+        <span>{{ item.value }}</span>
+        <ion-badge color="dark" item-end>{{ item.number }}</ion-badge>
+    </ion-item>
+
+    <p *ngIf="displayedWords===0">Your criteria set is not matching any words.</p>
 
 
 </ion-content>

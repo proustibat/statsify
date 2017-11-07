@@ -18,15 +18,11 @@ export class HomePage {
     stats:{ value: string, number:number}[]; // data used to display results
 
     rangeLength: any = {lower: 0, upper: 100}; // will be set by min and max with Occurences data
-
-    searchTerm: string = '';
-
-    timesSettingType: string = "more";
-    timesSettingNb: number = 1;
-
-    displayIsOrdered:boolean = false;
-
-    readMoreOpened:boolean = false;
+    searchTerm: string;
+    timesSettingType: string;
+    timesSettingNb:number;
+    readMoreOpened:boolean;
+    displayedWords:number;
 
     constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
     }
@@ -56,17 +52,22 @@ export class HomePage {
         this.statsRaw = Object.keys(this.textOccurrences.stats).map(key => {
             return { value: key, number: this.textOccurrences.stats[key] };
         });
-        this.reset();
+        this.initReset();
 
     }
 
-    reset() {
+    initReset() {
         this.stats = this.statsRaw;
+
+        this.searchTerm = '';
+        this.timesSettingType = 'greater';
+        this.timesSettingNb = 1;
+        this.readMoreOpened = false;
+
         this.setFilteredItems();
     }
 
     sort(order:string) {
-        this.displayIsOrdered = true;
         this.stats = this.statsRaw = this.textOccurrences.getSorted(order);
         this.setFilteredItems();
     }
@@ -90,11 +91,21 @@ export class HomePage {
     setFilteredItems() {
         this.stats = this.statsRaw;
         this.stats = this.stats.filter((item, index) => {
+
+            // criterion: research a string
             let searchCond = item.value.toLowerCase().includes(this.searchTerm.toLowerCase());
+
+            // criterion: length of words between min and max criteria of the list
             let lengthOfItem = item.value.length ? item.value.length : 0;
-            let rangeCond = lengthOfItem >= this.rangeLength.lower && lengthOfItem <=this.rangeLength.upper;
-            return searchCond && rangeCond;
+            let rangeCond = lengthOfItem >= this.rangeLength.lower && lengthOfItem <= this.rangeLength.upper;
+
+            // criterion: occurences of the word
+            let occurrencesSettingsCond = this.timesSettingType === 'greater' ? item.number >= this.timesSettingNb : item.number <= this.timesSettingNb;
+
+            // return all the criteria conditions of list displaying
+            return searchCond && rangeCond && occurrencesSettingsCond;
         });
+        this.displayedWords = this.stats.length;
     }
 
     timesSettings(setting:string): string[] {
@@ -102,16 +113,16 @@ export class HomePage {
 
         if(setting === 'type') {
             list = [
-                "more",
+                "greater",
                 "less"
             ];
         }
         else {
-            if(this.stats) {
+            if(this.statsRaw) {
                 let limits={max:0, min:0};
-                Object.keys(this.stats).forEach( k => {
-                    limits.max = Math.max(limits.max, this.stats[k].number);
-                    limits.min = Math.min(limits.max, this.stats[k].number);
+                Object.keys(this.statsRaw).forEach( k => {
+                    limits.max = Math.max(limits.max, this.statsRaw[k].number);
+                    limits.min = Math.min(limits.max, this.statsRaw[k].number);
                 });
                 for (let i=limits.min, l:number=limits.max; i<=l;i++ ) {
                     list.push((i).toString())
@@ -128,7 +139,7 @@ export class HomePage {
     occurrencesTimesChosen(): void {
         console.log(this.timesSettingType);
         console.log(this.timesSettingNb);
-        //TODO
+        this.setFilteredItems();
     }
 
     onReadMore(event:Event) {
