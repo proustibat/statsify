@@ -8,14 +8,20 @@
 
 <ion-content padding>
 
+
     <div>
+        <!-- the text -->
         <h1 text-uppercase class="data-title">Data</h1>
+
+        <!-- Button to apply on a random text -->
         <button class="data-buttons"
                 ion-button
                 small
                 outline
                 color="interaction"
                 (click)="shuffle()"><ion-icon name="shuffle"></ion-icon></button>
+
+        <!-- Button to apply on a user text -->
         <button class="data-buttons"
                 ion-button
                 small
@@ -25,6 +31,7 @@
         <p class="text" text-justify>{{text}}</p>
     </div>
 
+    <!-- Stats: global -->
     <h1>Global Stats</h1>
     <ion-row class="global-stats" *ngIf="textOccurrences && textOccurrences.meta">
         <ion-col col-2 text-center>
@@ -46,6 +53,7 @@
         </ion-col>
     </ion-row>
 
+    <!-- Stats: details -->
     <h1>Details</h1>
     <ion-row align-items-center margin-bottom>
         <ion-col>
@@ -63,11 +71,13 @@
         </ion-col>
     </ion-row>
 
-
+    <!-- DISPLAY SETTINGS FOR THE LIST -->
     <div class="read-more-wrap" [ngClass]="readMoreOpened ? 'opened' : 'closed'">
         <div class="read-more-target"
              padding
              [ngClass]="readMoreOpened ? 'opened' : 'closed'">
+
+            <!-- CRITERION: SEARCH A WORD OR CHARS-->
             <ion-searchbar
                     has-transition
                     no-margin
@@ -76,6 +86,7 @@
                     (ionInput)="setFilteredItems($event)"
                     (ionClear)="setFilteredItems($event)"></ion-searchbar>
 
+            <!--CRITERION: ORDER LIST BY NUMBER OF APPEARANCES IN THE TEXT (ASC OR DESC)-->
             <p class="order-buttons"
                has-transition
                data-transition-delay-150
@@ -93,6 +104,7 @@
                     <ion-icon name="trending-up"></ion-icon></button>
             </p>
 
+            <!-- CRITERION: FILTER LIST DEPENDING OF LENGTH'S WORDS-->
             <div class="filter-length"
                  has-transition
                  data-transition-delay-250
@@ -100,7 +112,6 @@
                  margin-bottom>
                 <p>Display words from <ion-badge color="light">{{rangeLength.lower}}</ion-badge> to <ion-badge color="light">{{rangeLength.upper}}</ion-badge> characters.</p>
             </div>
-
             <div class="range-occurences"
                  has-transition
                  has-transition-content
@@ -121,6 +132,7 @@
                 </ion-range>
             </div>
 
+            <!-- CRITERION: FILTER LIST BY NUMBER OF APPEARANCES IN THE TEXT (GREATER OR LESS THAN CHOSEN BY USER) -->
             <div class="settings-occurrences-times"
                  has-transition
                  data-transition-delay-450
@@ -132,7 +144,7 @@
                                     no-padding
                                     text-center
                                     [(ngModel)]="timesSettingType"
-                                    (ionChange)="occurrencesTimesChosen()"
+                                    (ionChange)="setFilteredItems()"
                                     interface="action-sheet">
                             <ion-option *ngFor="let valType of timesSettings('type')">{{valType}}</ion-option>
                         </ion-select>
@@ -143,7 +155,7 @@
                                     no-padding
                                     text-center
                                     [(ngModel)]="timesSettingNb"
-                                    (ionChange)="occurrencesTimesChosen()"
+                                    (ionChange)="setFilteredItems()"
                                     interface="action-sheet">
                             <ion-option *ngFor="let valNb of timesSettings('nb')">{{valNb}}</ion-option>
                         </ion-select>&nbsp;
@@ -160,12 +172,13 @@
         </div>
     </div>
 
+    <!-- THE LIST -->
     <ion-item *ngFor="let item of stats" padding-horizontal>
         <span>{{ item.value }}</span>
         <ion-badge color="dark" item-end>{{ item.number }}</ion-badge>
     </ion-item>
 
+    <!-- Message if list is empty because of the settings -->
     <p *ngIf="displayedWords===0">Your criteria set is not matching any words.</p>
-
 
 </ion-content>

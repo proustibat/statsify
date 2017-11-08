@@ -14,11 +14,11 @@ export class PastePage {
     constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl:ViewController) {
     }
 
-    ionViewDidLoad() {
+    ionViewDidLoad():void {
         console.log('ionViewDidLoad PastePage');
     }
 
-    dismiss(validate:boolean = false) {
+    dismiss(validate:boolean = false):void {
         this.viewCtrl.dismiss( validate ? this.text : null);
     }
 

@@ -11,7 +11,7 @@ export class AutosizeDirective implements AfterViewInit {
     private _clientWidth: number;
 
     @Input('minHeight')
-    get minHeight() {
+    get minHeight():string {
         return this._minHeight;
     }
     set minHeight(val: string) {
@@ -20,7 +20,7 @@ export class AutosizeDirective implements AfterViewInit {
     }
 
     @Input('maxHeight')
-    get maxHeight() {
+    get maxHeight():string {
         return this._maxHeight;
     }
     set maxHeight(val: string) {
@@ -29,7 +29,7 @@ export class AutosizeDirective implements AfterViewInit {
     }
 
     @HostListener('window:resize', ['$event.target'])
-    onResize(textArea: HTMLTextAreaElement) {
+    onResize(textArea: HTMLTextAreaElement): void {
         //Only apply adjustment if element width had changed.
         if (this.el.clientWidth === this._clientWidth) return;
         this._clientWidth = this.element.nativeElement.clientWidth;

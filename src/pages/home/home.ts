@@ -27,21 +27,21 @@ export class HomePage {
     constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
     }
 
-    ionViewDidLoad() {
+    ionViewDidLoad(): void {
         console.log("I'm alive!");
         this.init();
     }
 
-    init() {
+    init():void {
         this.getLoremText();
         this.createStats();
     }
 
-    getLoremText() {
+    getLoremText(): void {
         this.text = Faker.lorem.paragraph();
     }
 
-    createStats() {
+    createStats(): void {
         this.textOccurrences = new Occurences(this.text, {
             biggerThan: 0,
             sensitiveCase:true,
@@ -53,10 +53,9 @@ export class HomePage {
             return { value: key, number: this.textOccurrences.stats[key] };
         });
         this.initReset();
-
     }
 
-    initReset() {
+    initReset(): void {
         this.stats = this.statsRaw;
 
         this.searchTerm = '';
@@ -67,13 +66,13 @@ export class HomePage {
         this.setFilteredItems();
     }
 
-    sort(order:string) {
+    sort(order:string): void {
         this.stats = this.statsRaw = this.textOccurrences.getSorted(order);
         this.setFilteredItems();
     }
 
 
-    swap() {
+    swap():void {
         let modal = this.modalCtrl.create(PastePage);
         modal.onDidDismiss( data => {
             if(data) {
@@ -84,11 +83,11 @@ export class HomePage {
         modal.present();
     }
 
-    shuffle() {
+    shuffle(): void {
         this.init();
     }
 
-    setFilteredItems() {
+    setFilteredItems(): void {
         this.stats = this.statsRaw;
         this.stats = this.stats.filter((item, index) => {
 
@@ -136,13 +135,7 @@ export class HomePage {
         return list;
     }
 
-    occurrencesTimesChosen(): void {
-        console.log(this.timesSettingType);
-        console.log(this.timesSettingNb);
-        this.setFilteredItems();
-    }
-
-    onReadMore(event:Event) {
+    onReadMore(event:Event): void {
         this.readMoreOpened = !this.readMoreOpened;
     }
 
