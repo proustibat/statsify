@@ -8,11 +8,15 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { PastePage } from '../pages/paste/paste';
 
+// Components
+import {DataSourceComponent} from "../components/data-source/data-source";
+
 @NgModule({
     declarations: [
         MyApp,
         HomePage,
-        PastePage
+        PastePage,
+        DataSourceComponent
     ],
     imports: [
         BrowserModule,

@@ -8,50 +8,55 @@
 
 <ion-content padding>
 
+    <!--<my-custom propertyName="someValue" (someEvent)="onSomeEvent($event)">dsd</my-custom>-->
 
-    <div>
 
-        <h1 text-uppercase>Source</h1>
-        <ion-row align-items-center justify-item-left>
-            <ion-col col-auto>
-                <!-- Button to show the text -->
-                <button class="read-more-button data-buttons"
-                        ion-button
-                        small
-                        color="interaction"
-                        no-margin
-                        (click)="onReadMoreText()">
-                    {{readMoreTextOpened ? 'Hide source' : 'Show source'}}
-                </button>
-            </ion-col>
-            <ion-col col-auto>
-                <!-- Button to apply on a random text -->
-                <button class="data-buttons"
-                        ion-button
-                        small
-                        color="interaction"
-                        (click)="shuffle()"><ion-icon name="shuffle"></ion-icon></button>
-            </ion-col>
-            <ion-col col-auto>
-                <!-- Button to apply on a user text -->
-                <button class="data-buttons"
-                        ion-button
-                        small
-                        color="interaction"
-                        (click)="swap()"><ion-icon name="swap"></ion-icon></button>
-            </ion-col>
-        </ion-row>
+    <h1 text-uppercase>Source</h1>
+    <ion-row align-items-center justify-item-left>
+        <ion-col col-auto>
+            <!-- Button to show the text -->
+            <button class="read-more-button data-buttons"
+                    ion-button
+                    small
+                    color="interaction"
+                    no-margin
+                    (click)="onReadMoreText()">
+                {{readMoreTextOpened ? 'Hide source' : 'Show source'}}
+            </button>
+        </ion-col>
+        <ion-col col-auto>
+            <!-- Button to apply on a random text -->
+            <button class="data-buttons"
+                    ion-button
+                    small
+                    color="interaction"
+                    (click)="shuffle()"><ion-icon name="shuffle"></ion-icon></button>
+        </ion-col>
+        <ion-col col-auto>
+            <!-- Button to apply on a user text -->
+            <button class="data-buttons"
+                    ion-button
+                    small
+                    color="interaction"
+                    (click)="swap()"><ion-icon name="swap"></ion-icon></button>
+        </ion-col>
+    </ion-row>
 
-        <!-- the text -->
-        <div class="read-more-wrap read-more-wrap-text" [ngClass]="readMoreTextOpened ? 'opened' : 'closed'" no-margin no-padding margin-vertical>
-            <div class="read-more-target"
-                 no-margin
-                 no-padding
-                 [ngClass]="readMoreTextOpened ? 'opened' : 'closed'">
-                <p class="text" text-justify no-margin no-padding>{{text}}</p>
-            </div>
-        </div>
-    </div>
+
+    <!-- the text -->
+    <data-source *ngIf="isReady"
+            [readMoreTextOpened]="readMoreTextOpened"
+            (someEvent)="onSomeEvent($event)">{{text}}</data-source>
+
+    <!--<div class="read-more-wrap read-more-wrap-text" [ngClass]="readMoreTextOpened ? 'opened' : 'closed'" no-margin no-padding margin-vertical>-->
+        <!--<div class="read-more-target"-->
+             <!--no-margin-->
+             <!--no-padding-->
+             <!--[ngClass]="readMoreTextOpened ? 'opened' : 'closed'">-->
+            <!--<p class="text" text-justify no-margin no-padding>{{text}}</p>-->
+        <!--</div>-->
+    <!--</div>-->
+
 
     <!-- Stats: global -->
     <h1>Global Stats</h1>
@@ -75,6 +80,7 @@
         </ion-col>
     </ion-row>
 
+
     <!-- Stats: details -->
     <h1>Details</h1>
     <ion-row align-items-center margin-bottom>
@@ -92,6 +98,7 @@
             Displaying: {{displayedWords}} words
         </ion-col>
     </ion-row>
+
 
     <!-- DISPLAY SETTINGS FOR THE LIST -->
     <div class="read-more-wrap" [ngClass]="readMoreSettingsOpened ? 'opened' : 'closed'">
@@ -222,6 +229,7 @@
 
         </div>
     </div>
+
 
     <!-- THE LIST -->
     <ion-item *ngFor="let item of stats" padding-horizontal>

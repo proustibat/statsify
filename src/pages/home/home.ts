@@ -9,13 +9,14 @@ import {PastePage} from "../paste/paste";
     templateUrl: 'home.html'
 })
 
-
 export class HomePage {
 
     text:string;
     textOccurrences:Occurences;
     statsRaw:{ value: string, number:number}[]; // copy of the original data
     stats:{ value: string, number:number}[]; // data used to display results
+
+    isReady:boolean = false;
 
     rangeLength: any = {lower: 0, upper: 100}; // will be set by min and max with Occurences data
     searchTerm: string;
@@ -39,6 +40,7 @@ export class HomePage {
         this.getLoremText();
         this.initSettings();
         this.createStats();
+        this.isReady = true;
     }
 
     initSettings(): void {
@@ -170,6 +172,10 @@ export class HomePage {
         this.initReset();
         this.readMoreSettingsOpened = true;
 
+    }
+
+    onSomeEvent(event): void {
+        console.log('HOME: onSomeEvent ', event);
     }
 
 
