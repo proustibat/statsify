@@ -62,7 +62,7 @@
                     small
                     color="interaction"
                     no-margin
-                    (click)="onReadMore($event)">
+                    (click)="onReadMore()">
                 {{readMoreOpened ? 'Close display settings' : 'Show display settings'}}
             </button>
         </ion-col>
@@ -136,7 +136,8 @@
             <div class="settings-occurrences-times"
                  has-transition
                  data-transition-delay-450
-                 no-margin>
+                 no-margin
+                 margin-bottom>
                 <ion-row align-items-start justify-content-start>
                     <ion-col col-auto>Display words that appear&nbsp;</ion-col>
                     <ion-col col-auto>
@@ -169,6 +170,21 @@
                     <ion-col col-auto>text.</ion-col>
                 </ion-row>
             </div>
+
+            <!-- CRITERION: sensitive case -->
+            <div class="settings-sensitive-case"
+                 has-transition
+                 data-transition-delay-550
+                 no-margin>
+                <ion-checkbox
+                        color="interaction"
+                        margin-right
+                        [(ngModel)]="sensitiveCase"
+                        (ionChange)="onCheckbox()">
+                </ion-checkbox>
+                <span>Sensitive case</span>
+            </div>
+
         </div>
     </div>
 

@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import { ModalController, NavController } from 'ionic-angular';
+import {ModalController, NavController} from 'ionic-angular';
 import * as Occurences from 'Occurences';
 import * as Faker from 'faker';
 import {PastePage} from "../paste/paste";
@@ -23,6 +23,8 @@ export class HomePage {
     timesSettingNb:number;
     readMoreOpened:boolean;
     displayedWords:number;
+    sensitiveCase:boolean;
+    orderedBy:string;
 
     constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
     }
@@ -34,40 +36,56 @@ export class HomePage {
 
     init():void {
         this.getLoremText();
+        this.initSettings();
         this.createStats();
+    }
+
+    initSettings(): void {
+        this.searchTerm = '';
+        this.timesSettingType = 'greater';
+        this.timesSettingNb = 1;
+        this.readMoreOpened = false;
+        this.sensitiveCase = true;
+        this.orderedBy = '';
     }
 
     getLoremText(): void {
         this.text = Faker.lorem.paragraph();
     }
 
-    createStats(): void {
+    createStats(keepSettings:boolean = false): void {
         this.textOccurrences = new Occurences(this.text, {
             biggerThan: 0,
-            sensitiveCase:true,
+            sensitiveCase:this.sensitiveCase,
             ignored: []
         });
-        this.rangeLength.lower = this.textOccurrences.smallest[0] ? this.textOccurrences.smallest[0].length : 0;
-        this.rangeLength.upper = this.textOccurrences.longest[0] ? this.textOccurrences.longest[0].length : 0;
+        this.initReset(keepSettings);
+    }
+
+    initReset(keepSettings:boolean = false): void {
         this.statsRaw = Object.keys(this.textOccurrences.stats).map(key => {
             return { value: key, number: this.textOccurrences.stats[key] };
         });
-        this.initReset();
-    }
-
-    initReset(): void {
         this.stats = this.statsRaw;
-
-        this.searchTerm = '';
-        this.timesSettingType = 'greater';
-        this.timesSettingNb = 1;
-        this.readMoreOpened = false;
-
-        this.setFilteredItems();
+        if(!keepSettings) {
+            this.rangeLength.lower = this.textOccurrences.smallest[0] ? this.textOccurrences.smallest[0].length : 0;
+            this.rangeLength.upper = this.textOccurrences.longest[0] ? this.textOccurrences.longest[0].length : 0;
+            this.initSettings();
+            this.setFilteredItems();
+        }
+        else {
+            if(this.orderedBy && typeof this.orderedBy !== "undefined" && this.orderedBy.length > 0) {
+                this.sort(this.orderedBy);
+            }
+            else {
+                this.setFilteredItems();
+            }
+        }
     }
 
     sort(order:string): void {
         this.stats = this.statsRaw = this.textOccurrences.getSorted(order);
+        this.orderedBy = order;
         this.setFilteredItems();
     }
 
@@ -118,7 +136,7 @@ export class HomePage {
         }
         else {
             if(this.statsRaw) {
-                let limits={max:0, min:0};
+                let limits={max:1, min:1};
                 Object.keys(this.statsRaw).forEach( k => {
                     limits.max = Math.max(limits.max, this.statsRaw[k].number);
                     limits.min = Math.min(limits.min, this.statsRaw[k].number);
@@ -135,8 +153,13 @@ export class HomePage {
         return list;
     }
 
-    onReadMore(event:Event): void {
+    onReadMore(): void {
         this.readMoreOpened = !this.readMoreOpened;
+    }
+
+    onCheckbox(): void {
+        this.createStats(true);
+        this.readMoreOpened = true;
     }
 
 
