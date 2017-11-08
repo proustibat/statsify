@@ -121,7 +121,7 @@ export class HomePage {
                 let limits={max:0, min:0};
                 Object.keys(this.statsRaw).forEach( k => {
                     limits.max = Math.max(limits.max, this.statsRaw[k].number);
-                    limits.min = Math.min(limits.max, this.statsRaw[k].number);
+                    limits.min = Math.min(limits.min, this.statsRaw[k].number);
                 });
                 for (let i=limits.min, l:number=limits.max; i<=l;i++ ) {
                     list.push((i).toString())
