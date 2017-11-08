@@ -10,13 +10,15 @@ import { PastePage } from '../pages/paste/paste';
 
 // Components
 import {DataSourceComponent} from "../components/data-source/data-source";
+import {GlobalStatsComponent} from "../components/global-stats/global-stats";
 
 @NgModule({
     declarations: [
         MyApp,
         HomePage,
         PastePage,
-        DataSourceComponent
+        DataSourceComponent,
+        GlobalStatsComponent
     ],
     imports: [
         BrowserModule,

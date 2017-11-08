@@ -48,37 +48,13 @@
             [readMoreTextOpened]="readMoreTextOpened"
             (someEvent)="onSomeEvent($event)">{{text}}</data-source>
 
-    <!--<div class="read-more-wrap read-more-wrap-text" [ngClass]="readMoreTextOpened ? 'opened' : 'closed'" no-margin no-padding margin-vertical>-->
-        <!--<div class="read-more-target"-->
-             <!--no-margin-->
-             <!--no-padding-->
-             <!--[ngClass]="readMoreTextOpened ? 'opened' : 'closed'">-->
-            <!--<p class="text" text-justify no-margin no-padding>{{text}}</p>-->
-        <!--</div>-->
-    <!--</div>-->
-
 
     <!-- Stats: global -->
     <h1>Global Stats</h1>
-    <ion-row class="global-stats" *ngIf="textOccurrences && textOccurrences.meta">
-        <ion-col col-2 text-center>
-            <span class="value"><ion-badge color="dark">{{textOccurrences.meta.totalWords}}</ion-badge></span>
-            <span class="label" text-uppercase>Total<br/>Words</span>
-        </ion-col>
-        <ion-col col-3 text-center>
-            <span class="value"><ion-badge color="dark">{{textOccurrences.meta.differentWords}}</ion-badge></span>
-            <span class="label" text-uppercase>Different<br/>Words</span>
-        </ion-col>
-
-        <ion-col col-4 text-center>
-            <span class="value"><ion-badge color="dark">{{textOccurrences.meta.charsWS}}</ion-badge></span>
-            <span class="label" text-uppercase>Characters<br/>(with spaces)</span>
-        </ion-col>
-        <ion-col col-3 text-center>
-            <span class="value"><ion-badge color="dark">{{textOccurrences.meta.charsNS}}</ion-badge></span>
-            <span class="label" text-uppercase>Characters<br/>(no space)</span>
-        </ion-col>
-    </ion-row>
+    <global-stats
+            *ngIf="textOccurrences && textOccurrences.meta"
+            [meta]="textOccurrences.meta"
+    ></global-stats>
 
 
     <!-- Stats: details -->
