@@ -1,11 +1,6 @@
 page-home {
-  .data-title {
-    display: inline-block;
-    vertical-align: super;
-  }
-
   .data-buttons {
-    vertical-align: text-bottom;
+    //vertical-align: text-bottom;
   }
   .text {
     user-select: text;
@@ -24,6 +19,14 @@ page-home {
   }
 
   .read-more-wrap {
+    &.read-more-wrap-text.closed {
+      display: none;
+    }
+    &.read-more-wrap-text.opened {
+      display: block;
+    }
+
+
     .read-more-target {
 
     }

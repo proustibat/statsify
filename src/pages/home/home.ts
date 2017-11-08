@@ -21,7 +21,8 @@ export class HomePage {
     searchTerm: string;
     timesSettingType: string;
     timesSettingNb:number;
-    readMoreOpened:boolean;
+    readMoreSettingsOpened:boolean;
+    readMoreTextOpened:boolean;
     displayedWords:number;
     sensitiveCase:boolean;
     orderedBy:string;
@@ -44,7 +45,8 @@ export class HomePage {
         this.searchTerm = '';
         this.timesSettingType = 'greater';
         this.timesSettingNb = 1;
-        this.readMoreOpened = false;
+        this.readMoreSettingsOpened = false;
+        this.readMoreTextOpened = false;
         this.sensitiveCase = true;
         this.orderedBy = '';
     }
@@ -54,10 +56,11 @@ export class HomePage {
     }
 
     createStats(keepSettings:boolean = false): void {
+        this.readMoreSettingsOpened = keepSettings;
         this.textOccurrences = new Occurences(this.text, {
-            biggerThan: 0,
-            sensitiveCase:this.sensitiveCase,
-            ignored: []
+            biggerThan: 0, // settled in the displayed list
+            sensitiveCase:this.sensitiveCase, // an instance is created each time the user changes this setting
+            ignored: [] // settled in the displayed list
         });
         this.initReset(keepSettings);
     }
@@ -153,14 +156,18 @@ export class HomePage {
         return list;
     }
 
-    onReadMore(): void {
-        this.readMoreOpened = !this.readMoreOpened;
+    onReadMoreText(): void {
+        this.readMoreTextOpened = !this.readMoreTextOpened;
     }
 
-    onCheckbox(): void {
-        this.createStats(true);
-        this.readMoreOpened = true;
+    onReadMoreSettings(): void {
+        this.readMoreSettingsOpened = !this.readMoreSettingsOpened;
     }
+
+    // onCheckbox(): void {
+    //     this.createStats(true);
+    //     this.readMoreSettingsOpened = true;
+    // }
 
 
     ionViewWillLeave() {

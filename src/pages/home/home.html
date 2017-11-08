@@ -10,25 +10,47 @@
 
 
     <div>
+
+        <h1 text-uppercase>Source</h1>
+        <ion-row align-items-center justify-item-left>
+            <ion-col col-auto>
+                <!-- Button to show the text -->
+                <button class="read-more-button data-buttons"
+                        ion-button
+                        small
+                        color="interaction"
+                        no-margin
+                        (click)="onReadMoreText()">
+                    {{readMoreTextOpened ? 'Hide source' : 'Show source'}}
+                </button>
+            </ion-col>
+            <ion-col col-auto>
+                <!-- Button to apply on a random text -->
+                <button class="data-buttons"
+                        ion-button
+                        small
+                        color="interaction"
+                        (click)="shuffle()"><ion-icon name="shuffle"></ion-icon></button>
+            </ion-col>
+            <ion-col col-auto>
+                <!-- Button to apply on a user text -->
+                <button class="data-buttons"
+                        ion-button
+                        small
+                        color="interaction"
+                        (click)="swap()"><ion-icon name="swap"></ion-icon></button>
+            </ion-col>
+        </ion-row>
+
         <!-- the text -->
-        <h1 text-uppercase class="data-title">Data</h1>
-
-        <!-- Button to apply on a random text -->
-        <button class="data-buttons"
-                ion-button
-                small
-                outline
-                color="interaction"
-                (click)="shuffle()"><ion-icon name="shuffle"></ion-icon></button>
-
-        <!-- Button to apply on a user text -->
-        <button class="data-buttons"
-                ion-button
-                small
-                outline
-                color="interaction"
-                (click)="swap()"><ion-icon name="swap"></ion-icon></button>
-        <p class="text" text-justify>{{text}}</p>
+        <div class="read-more-wrap read-more-wrap-text" [ngClass]="readMoreTextOpened ? 'opened' : 'closed'" no-margin no-padding margin-vertical>
+            <div class="read-more-target"
+                 no-margin
+                 no-padding
+                 [ngClass]="readMoreTextOpened ? 'opened' : 'closed'">
+                <p class="text" text-justify no-margin no-padding>{{text}}</p>
+            </div>
+        </div>
     </div>
 
     <!-- Stats: global -->
@@ -62,8 +84,8 @@
                     small
                     color="interaction"
                     no-margin
-                    (click)="onReadMore()">
-                {{readMoreOpened ? 'Close display settings' : 'Show display settings'}}
+                    (click)="onReadMoreSettings()">
+                {{readMoreSettingsOpened ? 'Close display settings' : 'Show display settings'}}
             </button>
         </ion-col>
         <ion-col *ngIf="displayedWords">
@@ -72,10 +94,10 @@
     </ion-row>
 
     <!-- DISPLAY SETTINGS FOR THE LIST -->
-    <div class="read-more-wrap" [ngClass]="readMoreOpened ? 'opened' : 'closed'">
+    <div class="read-more-wrap" [ngClass]="readMoreSettingsOpened ? 'opened' : 'closed'">
         <div class="read-more-target"
              padding
-             [ngClass]="readMoreOpened ? 'opened' : 'closed'">
+             [ngClass]="readMoreSettingsOpened ? 'opened' : 'closed'">
 
             <!-- CRITERION: SEARCH A WORD OR CHARS-->
             <ion-searchbar
@@ -180,7 +202,7 @@
                         color="interaction"
                         margin-right
                         [(ngModel)]="sensitiveCase"
-                        (ionChange)="onCheckbox()">
+                        (ionChange)="createStats(true)">
                 </ion-checkbox>
                 <span>Sensitive case</span>
             </div>
