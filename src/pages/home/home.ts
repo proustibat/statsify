@@ -71,8 +71,10 @@ export class HomePage {
         });
         this.stats = this.statsRaw;
         if(!keepSettings) {
-            this.rangeLength.lower = this.textOccurrences.smallest[0] ? this.textOccurrences.smallest[0].length : 0;
-            this.rangeLength.upper = this.textOccurrences.longest[0] ? this.textOccurrences.longest[0].length : 0;
+            this.rangeLength = {
+              lower:  this.textOccurrences.smallest[0] ? this.textOccurrences.smallest[0].length : 0,
+              upper:  this.textOccurrences.longest[0] ? this.textOccurrences.longest[0].length : 0
+            };
             this.initSettings();
             this.setFilteredItems();
         }
@@ -164,10 +166,11 @@ export class HomePage {
         this.readMoreSettingsOpened = !this.readMoreSettingsOpened;
     }
 
-    // onCheckbox(): void {
-    //     this.createStats(true);
-    //     this.readMoreSettingsOpened = true;
-    // }
+    onClearAllSettings(): void {
+        this.initReset();
+        this.readMoreSettingsOpened = true;
+
+    }
 
 
     ionViewWillLeave() {
