@@ -5,24 +5,19 @@ import {Component, EventEmitter, Output} from '@angular/core';
     templateUrl: 'data-source.html'
 })
 export class DataSourceComponent {
-    @Output() toggle = new EventEmitter();
-    readMoreTextOpened:boolean;
+    @Output() hasToggle = new EventEmitter();
+    readMoreTextOpened:boolean = false;
 
     constructor() {
         console.log('Hello DataSourceComponent Component');
-        this.reset();
     }
 
-    ionViewDidLoad(): void {
-        console.log('ionViewDidLoad: this.readMoreTextOpened = ', this.readMoreTextOpened);
+    ngAfterViewInit(): void {
+        console.log('ngAfterViewInit: this.readMoreTextOpened = ', this.readMoreTextOpened);
     }
 
-    reset(): void {
-        this.readMoreTextOpened = false;
-    }
-
-    onReadMoreText(): void {
-        this.readMoreTextOpened = !this.readMoreTextOpened;
-        this.toggle.emit({opened: this.readMoreTextOpened});
+    toggle(forceClose?:boolean): void {
+        this.readMoreTextOpened = forceClose ? false : !this.readMoreTextOpened;
+        this.hasToggle.emit({opened: this.readMoreTextOpened});
     }
 }

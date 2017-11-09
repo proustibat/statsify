@@ -11,6 +11,7 @@ import { PastePage } from '../pages/paste/paste';
 // Components
 import {DataSourceComponent} from "../components/data-source/data-source";
 import {GlobalStatsComponent} from "../components/global-stats/global-stats";
+import {DisplaySettingsComponent} from "../components/display-settings/display-settings";
 
 @NgModule({
     declarations: [
@@ -18,7 +19,8 @@ import {GlobalStatsComponent} from "../components/global-stats/global-stats";
         HomePage,
         PastePage,
         DataSourceComponent,
-        GlobalStatsComponent
+        GlobalStatsComponent,
+        DisplaySettingsComponent
     ],
     imports: [
         BrowserModule,

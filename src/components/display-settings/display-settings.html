@@ -1,0 +1,144 @@
+<ion-row align-items-center margin-bottom>
+  <ion-col>
+    <button class="read-more-button"
+            ion-button
+            small
+            color="interaction"
+            no-margin
+            (click)="onReadMoreSettings()">
+      {{readMoreSettingsOpened ? 'Close display settings' : 'Show display settings'}}
+    </button>
+  </ion-col>
+
+  <ion-col padding-horizontal>
+    {{((displayedWords && displayedWords > 1) ?  displayedWords + ' words' : displayedWords.toString() + ' word') + ' displayed'}}
+  </ion-col>
+</ion-row>
+
+<div class="read-more-wrap" [ngClass]="readMoreSettingsOpened ? 'opened' : 'closed'">
+  <div class="read-more-target"
+       padding
+       [ngClass]="readMoreSettingsOpened ? 'opened' : 'closed'">
+
+    <!-- CRITERION: SEARCH A WORD OR CHARS-->
+    <ion-searchbar
+            has-transition
+            no-margin
+            margin-bottom
+            [(ngModel)]="searchTerm"
+            (ionInput)="dispatchChange()"
+            (ionClear)="dispatchChange()"></ion-searchbar>
+
+    <!--CRITERION: ORDER LIST BY NUMBER OF APPEARANCES IN THE TEXT (ASC OR DESC)-->
+    <!--<p class="order-buttons"-->
+       <!--has-transition-->
+       <!--data-transition-delay-150-->
+       <!--no-margin-->
+       <!--margin-bottom>Order list by occurrences-->
+      <!--<button ion-button-->
+              <!--small-->
+              <!--color="interaction"-->
+              <!--(click)="sort('desc')">-->
+        <!--<ion-icon name="trending-down"></ion-icon></button>-->
+      <!--<button ion-button-->
+              <!--small-->
+              <!--color="interaction"-->
+              <!--(click)="sort('asc')">-->
+        <!--<ion-icon name="trending-up"></ion-icon></button>-->
+    <!--</p>-->
+
+    <!-- CRITERION: FILTER LIST DEPENDING OF LENGTH'S WORDS-->
+    <div class="filter-length"
+         has-transition
+         data-transition-delay-250
+         no-margin
+         margin-bottom>
+      <p>Display words from <ion-badge color="light">{{rangeLength.lower}}</ion-badge> to <ion-badge color="light">{{rangeLength.upper}}</ion-badge> characters.</p>
+    </div>
+    <div class="range-occurences"
+         has-transition
+         has-transition-content
+         data-transition-delay-350-content
+         no-margin
+         margin-bottom>
+      <ion-range color="interaction"
+                 no-margin
+                 no-padding
+                 dualKnobs="true"
+                 [min]="minLength"
+                 [max]="maxLength"
+                 [(ngModel)]="rangeLength"
+                 (ionChange)="dispatchChange()">
+        <ion-label range-left>{{minLength}}</ion-label>
+        <ion-label range-right>{{maxLength}}</ion-label>
+      </ion-range>
+    </div>
+
+     <!--CRITERION: FILTER LIST BY NUMBER OF APPEARANCES IN THE TEXT (MORE OR LESS THAN CHOSEN BY USER) -->
+    <div class="settings-occurrences-times"
+         has-transition
+         data-transition-delay-450
+         no-margin
+         margin-bottom>
+      <ion-row align-items-start justify-content-start>
+        <ion-col col-auto>Display words that appear&nbsp;</ion-col>
+        <ion-col col-auto>
+          <ion-select item-start
+                      no-padding
+                      text-center
+                      [(ngModel)]="timesSettingType"
+                      (ionChange)="dispatchChange()"
+                      interface="action-sheet">
+            <ion-option *ngFor="let valType of timesSettings('type')">{{valType}}</ion-option>
+          </ion-select>
+        </ion-col>
+        <ion-col col-auto>&nbsp;than&nbsp;</ion-col>
+        <ion-col col-auto>
+          <ion-select item-start
+                      no-padding
+                      text-center
+                      [(ngModel)]="timesSettingNb"
+                      (ionChange)="dispatchChange()"
+                      interface="action-sheet">
+            <ion-option *ngFor="let valNb of timesSettings('nb')">{{valNb}}</ion-option>
+          </ion-select>&nbsp;
+        </ion-col >
+        <ion-col col-auto>times&nbsp;</ion-col>
+        <ion-col col-auto>&nbsp;(or&nbsp;</ion-col>
+        <ion-col col-auto>&nbsp;equal&nbsp;</ion-col>
+        <ion-col col-auto>&nbsp;to)&nbsp;</ion-col>
+        <ion-col col-auto>in&nbsp;</ion-col>
+        <ion-col col-auto>the&nbsp;</ion-col>
+        <ion-col col-auto>text.</ion-col>
+      </ion-row>
+    </div>
+
+    <!--&lt;!&ndash; CRITERION: sensitive case &ndash;&gt;-->
+    <!--<div class="settings-sensitive-case"-->
+         <!--has-transition-->
+         <!--data-transition-delay-550-->
+         <!--no-margin>-->
+      <!--<ion-checkbox-->
+              <!--color="interaction"-->
+              <!--margin-right-->
+              <!--[(ngModel)]="sensitiveCase"-->
+              <!--(ionChange)="createStats(true)">-->
+      <!--</ion-checkbox>-->
+      <!--<span>Sensitive case</span>-->
+    <!--</div>-->
+
+
+    <!-- CLEAR ALL SETTINGS -->
+    <!--<button class="settings-clear"-->
+            <!--ion-button-->
+            <!--small-->
+            <!--color="interaction"-->
+            <!--margin-top-->
+            <!--has-transition-->
+            <!--data-transition-delay-650-->
+            <!--(click)="onClearAllSettings()">-->
+      <!--Clear all settings-->
+    <!--</button>-->
+
+  </div>
+</div>
