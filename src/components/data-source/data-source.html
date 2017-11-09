@@ -1,3 +1,13 @@
+<!-- Button to show the text -->
+<button class="read-more-button data-buttons"
+        ion-button
+        small
+        color="interaction"
+        no-margin
+        (click)="onReadMoreText()">
+  {{readMoreTextOpened ? 'Hide source' : 'Show source'}}
+</button>
+
 <div class="read-more-wrap read-more-wrap-text" [ngClass]="readMoreTextOpened ? 'opened' : 'closed'" no-margin no-padding margin-vertical>
   <div class="read-more-target"
        no-margin

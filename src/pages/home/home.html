@@ -14,17 +14,6 @@
     <h1 text-uppercase>Source</h1>
     <ion-row align-items-center justify-item-left>
         <ion-col col-auto>
-            <!-- Button to show the text -->
-            <button class="read-more-button data-buttons"
-                    ion-button
-                    small
-                    color="interaction"
-                    no-margin
-                    (click)="onReadMoreText()">
-                {{readMoreTextOpened ? 'Hide source' : 'Show source'}}
-            </button>
-        </ion-col>
-        <ion-col col-auto>
             <!-- Button to apply on a random text -->
             <button class="data-buttons"
                     ion-button
@@ -44,9 +33,7 @@
 
 
     <!-- the text -->
-    <data-source *ngIf="isReady"
-            [readMoreTextOpened]="readMoreTextOpened"
-            (someEvent)="onSomeEvent($event)">{{text}}</data-source>
+    <data-source *ngIf="isReady" #dataSource (toggle)="onSourceToggle($event)">{{text}}</data-source>
 
 
     <!-- Stats: global -->

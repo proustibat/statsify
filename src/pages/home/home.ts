@@ -1,8 +1,9 @@
-import {Component} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {ModalController, NavController} from 'ionic-angular';
 import * as Occurences from 'Occurences';
 import * as Faker from 'faker';
 import {PastePage} from "../paste/paste";
+import {DataSourceComponent} from "../../components/data-source/data-source";
 
 @Component({
     selector: 'page-home',
@@ -23,10 +24,10 @@ export class HomePage {
     timesSettingType: string;
     timesSettingNb:number;
     readMoreSettingsOpened:boolean;
-    readMoreTextOpened:boolean;
     displayedWords:number;
     sensitiveCase:boolean;
     orderedBy:string;
+    @ViewChild('dataSource') dataSource: DataSourceComponent;
 
     constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
     }
@@ -48,7 +49,6 @@ export class HomePage {
         this.timesSettingType = 'greater';
         this.timesSettingNb = 1;
         this.readMoreSettingsOpened = false;
-        this.readMoreTextOpened = false;
         this.sensitiveCase = true;
         this.orderedBy = '';
     }
@@ -68,6 +68,10 @@ export class HomePage {
     }
 
     initReset(keepSettings:boolean = false): void {
+        if(this.dataSource) {
+            this.dataSource.reset();
+        }
+
         this.statsRaw = Object.keys(this.textOccurrences.stats).map(key => {
             return { value: key, number: this.textOccurrences.stats[key] };
         });
@@ -160,8 +164,8 @@ export class HomePage {
         return list;
     }
 
-    onReadMoreText(): void {
-        this.readMoreTextOpened = !this.readMoreTextOpened;
+    onSourceToggle(event): void {
+        console.log('Home.onSourceToggle ', event);
     }
 
     onReadMoreSettings(): void {
@@ -173,11 +177,6 @@ export class HomePage {
         this.readMoreSettingsOpened = true;
 
     }
-
-    onSomeEvent(event): void {
-        console.log('HOME: onSomeEvent ', event);
-    }
-
 
     ionViewWillLeave() {
         console.log("Looks like I'm about to leave :(");

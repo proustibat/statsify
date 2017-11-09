@@ -1,17 +1,28 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
     selector: 'data-source',
     templateUrl: 'data-source.html'
 })
 export class DataSourceComponent {
-    @Input('readMoreTextOpened') readMoreTextOpened;
-    @Output() someEvent = new EventEmitter();
+    @Output() toggle = new EventEmitter();
+    readMoreTextOpened:boolean;
+
     constructor() {
         console.log('Hello DataSourceComponent Component');
+        this.reset();
     }
+
     ionViewDidLoad(): void {
         console.log('ionViewDidLoad: this.readMoreTextOpened = ', this.readMoreTextOpened);
-        this.someEvent.emit({data: 'coucou'});
+    }
+
+    reset(): void {
+        this.readMoreTextOpened = false;
+    }
+
+    onReadMoreText(): void {
+        this.readMoreTextOpened = !this.readMoreTextOpened;
+        this.toggle.emit({opened: this.readMoreTextOpened});
     }
 }
