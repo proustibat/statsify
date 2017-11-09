@@ -46,7 +46,7 @@ export class HomePage {
 
     initSettings(): void {
         this.searchTerm = '';
-        this.timesSettingType = 'greater';
+        this.timesSettingType = 'more';
         this.timesSettingNb = 1;
         this.readMoreSettingsOpened = false;
         this.sensitiveCase = true;
@@ -128,7 +128,7 @@ export class HomePage {
             let rangeCond = lengthOfItem >= this.rangeLength.lower && lengthOfItem <= this.rangeLength.upper;
 
             // criterion: occurences of the word
-            let occurrencesSettingsCond = this.timesSettingType === 'greater' ? item.number >= this.timesSettingNb : item.number <= this.timesSettingNb;
+            let occurrencesSettingsCond = this.timesSettingType === 'more' ? item.number >= this.timesSettingNb : item.number <= this.timesSettingNb;
 
             // return all the criteria conditions of list displaying
             return searchCond && rangeCond && occurrencesSettingsCond;
@@ -141,7 +141,7 @@ export class HomePage {
 
         if(setting === 'type') {
             list = [
-                "greater",
+                "more",
                 "less"
             ];
         }

@@ -8,6 +8,7 @@
 
 <ion-content padding>
 
+
     <h1 text-uppercase>Source</h1>
 
     <!-- the text -->
@@ -35,16 +36,21 @@
     </ion-row>
 
 
-    <!-- Stats: global -->
+
+    <!-- STATS: GLOBAL -->
     <h1>Global Stats</h1>
+
     <global-stats
             *ngIf="textOccurrences && textOccurrences.meta"
             [meta]="textOccurrences.meta"
     ></global-stats>
 
 
-    <!-- Stats: details -->
+
+    <!-- STATS: DETAILS -->
     <h1>Details</h1>
+
+    <!-- Display settings for the list -->
     <ion-row align-items-center margin-bottom>
         <ion-col>
             <button class="read-more-button"
@@ -56,13 +62,10 @@
                 {{readMoreSettingsOpened ? 'Close display settings' : 'Show display settings'}}
             </button>
         </ion-col>
-        <ion-col *ngIf="displayedWords">
-            Displaying: {{displayedWords}} words
+        <ion-col *ngIf="displayedWords" padding-horizontal>
+            {{displayedWords}} words displayed
         </ion-col>
     </ion-row>
-
-
-    <!-- DISPLAY SETTINGS FOR THE LIST -->
     <div class="read-more-wrap" [ngClass]="readMoreSettingsOpened ? 'opened' : 'closed'">
         <div class="read-more-target"
              padding
@@ -123,7 +126,7 @@
                 </ion-range>
             </div>
 
-            <!-- CRITERION: FILTER LIST BY NUMBER OF APPEARANCES IN THE TEXT (GREATER OR LESS THAN CHOSEN BY USER) -->
+            <!-- CRITERION: FILTER LIST BY NUMBER OF APPEARANCES IN THE TEXT (MORE OR LESS THAN CHOSEN BY USER) -->
             <div class="settings-occurrences-times"
                  has-transition
                  data-transition-delay-450
@@ -193,7 +196,7 @@
     </div>
 
 
-    <!-- THE LIST -->
+    <!-- The list -->
     <ion-item *ngFor="let item of stats" padding-horizontal>
         <span>{{ item.value }}</span>
         <ion-badge color="dark" item-end>{{ item.number }}</ion-badge>
