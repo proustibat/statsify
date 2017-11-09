@@ -1,5 +1,6 @@
 page-home {
 
+  // TODO mettre ca dans les bons composants
   .read-more-wrap {
     &.read-more-wrap-text.closed {
       display: none;
@@ -91,43 +92,6 @@ page-home {
   }
 
 
-  .settings-occurrences-times {
-    ion-select {
-      display: inline-block;
-      padding: 0;
-      margin: 0;
-      max-width: none;
-      background: color($colors, 'interaction');
-      color: color($colors, 'light');
 
-    }
-    .select {
-      .select-text {
-        padding: 0 1rem .2rem 1rem;
-      }
-      .select-icon {
-        position: absolute;
-        height: 19px;
-        width: 100%;
-        text-align: center;
-
-        .select-icon-inner {
-          position: relative;
-          left: calc(50% - 5px);
-          top: 1px;
-          right: 0;
-          margin: 0;
-          padding: 0;
-          color: color($colors, 'dark');
-        }
-      }
-    }
-  }
-
-
-  .settings-sensitive-case {
-    display: flex;
-    align-items: center;
-  }
 
 }

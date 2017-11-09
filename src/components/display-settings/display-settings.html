@@ -119,28 +119,29 @@
          data-transition-delay-550
          no-margin>
         <ion-item no-margin no-padding no-lines>
-          <ion-checkbox
+          <ion-toggle
                   color="interaction"
-                  margin-right
+                  no-margin
+                  item-start
                   [(ngModel)]="sensitiveCase"
                   (ionChange)="dispatchChange({sensitiveCase: sensitiveCase})">
-          </ion-checkbox>
-          <ion-label>Sensitive case</ion-label>
+          </ion-toggle>
+          <ion-label fixed>Sensitive case</ion-label>
         </ion-item>
     </div>
 
 
     <!-- CLEAR ALL SETTINGS -->
-    <!--<button class="settings-clear"-->
-            <!--ion-button-->
-            <!--small-->
-            <!--color="interaction"-->
-            <!--margin-top-->
-            <!--has-transition-->
-            <!--data-transition-delay-650-->
-            <!--(click)="onClearAllSettings()">-->
-      <!--Clear all settings-->
-    <!--</button>-->
+    <button class="settings-clear"
+            ion-button
+            small
+            color="interaction"
+            margin-top
+            has-transition
+            data-transition-delay-650
+            (click)="this.reset({clear:true})">
+      Clear all settings
+    </button>
 
   </div>
 </div>

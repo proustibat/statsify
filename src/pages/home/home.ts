@@ -36,7 +36,6 @@ export class HomePage {
     init():void {
         this.getFakeText();
         this.createStats();
-        this.isReady = true;
     }
 
     getFakeText(): void {
@@ -49,10 +48,11 @@ export class HomePage {
             sensitiveCase: sensitiveCase, // an instance is created each time the user changes this setting
             ignored: [] // settled in the displayed list
         });
-        this.initReset(keepSettings);
+        this.isReady = true;
+        this.reset(keepSettings);
     }
 
-    initReset(keepSettings:boolean = false): void {
+    reset(keepSettings:boolean = false): void {
         this.statsRaw = Object.keys(this.textOccurrences.stats).map(key => {
             return { value: key, number: this.textOccurrences.stats[key] };
         });
@@ -81,14 +81,14 @@ export class HomePage {
                 this.displaySettings.reset({
                     minLength: this.textOccurrences.smallest[0] ? this.textOccurrences.smallest[0].length : 0,
                     maxLength: this.textOccurrences.longest[0] ? this.textOccurrences.longest[0].length : 0,
-                    statsRaw: this.statsRaw,
-                    minOccurrences: this.limitsOccurrences.min,
-                    maxOccurrences: this.limitsOccurrences.max
+                    minOccurrences: Number(this.limitsOccurrences.min),
+                    maxOccurrences: Number(this.limitsOccurrences.max)
                 });
             }
             this.filterList();
         }
     }
+
     swap():void {
         let modal = this.modalCtrl.create(PastePage);
         modal.onDidDismiss( data => {
@@ -101,7 +101,15 @@ export class HomePage {
     }
 
     filterList(data?:any): void {
+
         this.stats = this.statsRaw;
+
+        // clear has been requested
+        if(data && data.clear) {
+            // this.createStats(false, true);
+            this.reset();
+            return;
+        }
 
         // order has changed
         if(data && data.orderSort) {
@@ -119,13 +127,6 @@ export class HomePage {
             this.stats = this.stats.filter((item, index) => {
                 return this.displaySettings.isValidItem(item);
             });
-        }
-    }
-
-    onClearAllSettings(): void {
-        this.initReset();
-        if(this.displaySettings) {
-            this.displaySettings.reset();
         }
 
     }

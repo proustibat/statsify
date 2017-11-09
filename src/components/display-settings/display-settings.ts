@@ -32,11 +32,15 @@ export class DisplaySettingsComponent {
     }
 
 
-    reset(data?:any): void {
-        console.log('DisplaySettingsComponent.reset : ', data);
+    reset(data?:{
+        minLength?:number,
+        maxLength?:number,
+        minOccurrences?:number,
+        maxOccurrences?:number,
+        clear?:boolean
+    }): void {
 
-      // TODO : verifier le keepsettings lorsqu'on coche case sensitive
-        this.readMoreSettingsOpened = false;
+        // this.readMoreSettingsOpened = false;
 
         // Avoid ERROR: ExpressionChangedAfterItHasBeenCheckedError
         this.changeDetector.detach();
@@ -71,11 +75,10 @@ export class DisplaySettingsComponent {
 
 
         // Dispatch event of settings changed
-        this.dispatchChange();
+        this.dispatchChange((data && data.clear) ? {clear:true} : null);
     }
 
 
-    // TODO: replace by a toggle
     onReadMoreSettings(): void {
         this.readMoreSettingsOpened = !this.readMoreSettingsOpened;
     }
@@ -84,6 +87,7 @@ export class DisplaySettingsComponent {
     dispatchChange(data?:any):void {
         this.onSettingsChanged.emit(data);
     }
+
 
     isValidItem(item:{value:string,number:number}): boolean {
         // criterion: research a string
