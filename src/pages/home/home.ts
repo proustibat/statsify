@@ -21,7 +21,6 @@ export class HomePage {
     isReady:boolean = false;
 
     sensitiveCase:boolean;
-    orderedBy:string;
     limitsOccurrences = {max:1, min:1};
 
     @ViewChild('dataSource') dataSource: DataSourceComponent;
@@ -31,7 +30,7 @@ export class HomePage {
     }
 
     ionViewDidLoad(): void {
-        console.log("I'm alive!");
+        console.log('Hello HomePage');
         this.init();
     }
 
@@ -44,7 +43,6 @@ export class HomePage {
 
     initSettings(): void {
         this.sensitiveCase = true;
-        this.orderedBy = '';
     }
 
     getLoremText(): void {
@@ -64,8 +62,9 @@ export class HomePage {
         this.statsRaw = Object.keys(this.textOccurrences.stats).map(key => {
             return { value: key, number: this.textOccurrences.stats[key] };
         });
+
         this.stats = this.statsRaw;
-        
+
         if(this.dataSource) {
             this.dataSource.toggle(true);
         }
@@ -96,23 +95,7 @@ export class HomePage {
             this.initSettings();
             this.filterList();
         }
-        else {
-            if(this.orderedBy && typeof this.orderedBy !== "undefined" && this.orderedBy.length > 0) {
-                this.sort(this.orderedBy);
-            }
-            else {
-                this.filterList();
-            }
-        }
     }
-
-    sort(order:string): void {
-        this.stats = this.statsRaw = this.textOccurrences.getSorted(order);
-        this.orderedBy = order;
-        this.filterList();
-    }
-
-
     swap():void {
         let modal = this.modalCtrl.create(PastePage);
         modal.onDidDismiss( data => {
@@ -128,14 +111,16 @@ export class HomePage {
         this.init();
     }
 
-    onSourceToggle(event): void {
-        console.log('Home.onSourceToggle ', event);
+    onSourceToggle(data:any): void {
+        console.log('Home.onSourceToggle ', data);
     }
 
 
-    filterList(criteria?:any): void {
-        console.log('Home.filterList ', criteria);
+    filterList(data?:any): void {
         this.stats = this.statsRaw;
+        if(data && data.orderSort) {
+            this.stats = this.statsRaw = this.textOccurrences.getSorted(data.orderSort);
+        }
 
         if(this.displaySettings) {
             this.stats = this.stats.filter((item, index) => {

@@ -27,18 +27,13 @@ export class DisplaySettingsComponent {
         console.log('Hello DisplaySettingsComponent Component');
     }
 
-    detectChanges () {
-        console.log('DETECTCHANGES');
-        this.changeDetector.detectChanges();
-    }
-
     ngAfterViewInit(): void {
-        console.log("DisplaySettings.ngAfterViewChecked ", this.minLength, this.maxLength);
         this.reset();
     }
 
+
     reset(data?:any): void {
-        console.log('DisplaySettings.reset');
+        console.log('DisplaySettingsComponent.reset : ', data);
 
       // TODO : verifier le keepsettings lorsqu'on coche case sensitive
         this.readMoreSettingsOpened = false;
@@ -79,23 +74,16 @@ export class DisplaySettingsComponent {
         this.dispatchChange();
     }
 
+
+    // TODO: replace by a toggle
     onReadMoreSettings(): void {
         this.readMoreSettingsOpened = !this.readMoreSettingsOpened;
     }
 
 
-    dispatchChange():void {
-        this.onSettingsChanged.emit({
-            searchTerm: this.searchTerm,
-            rangeLength: this.rangeLength,
-            timesSettings: {
-                timesSettingType: this.timesSettingType,
-                timesSettingNb: this.timesSettingNb
-            }
-
-        });
+    dispatchChange(data?:any):void {
+        this.onSettingsChanged.emit(data);
     }
-
 
     isValidItem(item:{value:string,number:number}): boolean {
         // criterion: research a string
@@ -110,6 +98,7 @@ export class DisplaySettingsComponent {
         // return all the criteria conditions of list displaying
         return searchCond && rangeCond && occurrencesSettingsCond;
     }
+
 
     timesSettings(setting:string): string[] {
         let list:string[] = [];

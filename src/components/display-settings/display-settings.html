@@ -30,22 +30,22 @@
             (ionClear)="dispatchChange()"></ion-searchbar>
 
     <!--CRITERION: ORDER LIST BY NUMBER OF APPEARANCES IN THE TEXT (ASC OR DESC)-->
-    <!--<p class="order-buttons"-->
-       <!--has-transition-->
-       <!--data-transition-delay-150-->
-       <!--no-margin-->
-       <!--margin-bottom>Order list by occurrences-->
-      <!--<button ion-button-->
-              <!--small-->
-              <!--color="interaction"-->
-              <!--(click)="sort('desc')">-->
-        <!--<ion-icon name="trending-down"></ion-icon></button>-->
-      <!--<button ion-button-->
-              <!--small-->
-              <!--color="interaction"-->
-              <!--(click)="sort('asc')">-->
-        <!--<ion-icon name="trending-up"></ion-icon></button>-->
-    <!--</p>-->
+    <p class="order-buttons"
+       has-transition
+       data-transition-delay-150
+       no-margin
+       margin-bottom>Order list by occurrences
+      <button ion-button
+              small
+              color="interaction"
+              (click)="dispatchChange({orderSort:'desc'})">
+        <ion-icon name="trending-down"></ion-icon></button>
+      <button ion-button
+              small
+              color="interaction"
+              (click)="dispatchChange({orderSort:'asc'})">
+        <ion-icon name="trending-up"></ion-icon></button>
+    </p>
 
     <!-- CRITERION: FILTER LIST DEPENDING OF LENGTH'S WORDS-->
     <div class="filter-length"

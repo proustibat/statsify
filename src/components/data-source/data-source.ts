@@ -12,10 +12,6 @@ export class DataSourceComponent {
         console.log('Hello DataSourceComponent Component');
     }
 
-    ngAfterViewInit(): void {
-        console.log('ngAfterViewInit: this.readMoreTextOpened = ', this.readMoreTextOpened);
-    }
-
     toggle(forceClose?:boolean): void {
         this.readMoreTextOpened = forceClose ? false : !this.readMoreTextOpened;
         this.hasToggle.emit({opened: this.readMoreTextOpened});
