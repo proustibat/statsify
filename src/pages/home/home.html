@@ -1,17 +1,20 @@
 <ion-header>
     <ion-navbar>
         <ion-title color="primary">
-            Ionic Occurences
+            Text stats
         </ion-title>
     </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
-    <!--<my-custom propertyName="someValue" (someEvent)="onSomeEvent($event)">dsd</my-custom>-->
-
-
     <h1 text-uppercase>Source</h1>
+
+    <!-- the text -->
+    <data-source *ngIf="isReady" #dataSource (toggle)="onSourceToggle($event)">{{text}}</data-source>
+
+
+    <!-- Buttons to change or shuffle the source text -->
     <ion-row align-items-center justify-item-left>
         <ion-col col-auto>
             <!-- Button to apply on a random text -->
@@ -30,10 +33,6 @@
                     (click)="swap()"><ion-icon name="swap"></ion-icon></button>
         </ion-col>
     </ion-row>
-
-
-    <!-- the text -->
-    <data-source *ngIf="isReady" #dataSource (toggle)="onSourceToggle($event)">{{text}}</data-source>
 
 
     <!-- Stats: global -->
