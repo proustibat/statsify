@@ -20,8 +20,7 @@ export class HomePage {
 
     isReady:boolean = false;
 
-    sensitiveCase:boolean;
-    limitsOccurrences = {max:1, min:1};
+    limitsOccurrences:{ max:number, min:number };
 
     @ViewChild('dataSource') dataSource: DataSourceComponent;
     @ViewChild('displaySettings') displaySettings: DisplaySettingsComponent;
@@ -35,24 +34,19 @@ export class HomePage {
     }
 
     init():void {
-        this.getLoremText();
-        this.initSettings();
+        this.getFakeText();
         this.createStats();
         this.isReady = true;
     }
 
-    initSettings(): void {
-        this.sensitiveCase = true;
-    }
-
-    getLoremText(): void {
+    getFakeText(): void {
         this.text = Faker.lorem.paragraph();
     }
 
-    createStats(keepSettings:boolean = false): void {
+    createStats(keepSettings:boolean = false, sensitiveCase:boolean = true): void {
         this.textOccurrences = new Occurences(this.text, {
             biggerThan: 0, // settled in the displayed list
-            sensitiveCase:this.sensitiveCase, // an instance is created each time the user changes this setting
+            sensitiveCase: sensitiveCase, // an instance is created each time the user changes this setting
             ignored: [] // settled in the displayed list
         });
         this.initReset(keepSettings);
@@ -92,7 +86,6 @@ export class HomePage {
                     maxOccurrences: this.limitsOccurrences.max
                 });
             }
-            this.initSettings();
             this.filterList();
         }
     }
@@ -107,21 +100,21 @@ export class HomePage {
         modal.present();
     }
 
-    shuffle(): void {
-        this.init();
-    }
-
-    onSourceToggle(data:any): void {
-        console.log('Home.onSourceToggle ', data);
-    }
-
-
     filterList(data?:any): void {
         this.stats = this.statsRaw;
+
+        // order has changed
         if(data && data.orderSort) {
             this.stats = this.statsRaw = this.textOccurrences.getSorted(data.orderSort);
         }
 
+        // sensitive case option has changed
+        if(data && typeof data.sensitiveCase === "boolean") {
+            this.createStats(
+                true, data.sensitiveCase && true);
+        }
+
+        // filters have changed
         if(this.displaySettings) {
             this.stats = this.stats.filter((item, index) => {
                 return this.displaySettings.isValidItem(item);

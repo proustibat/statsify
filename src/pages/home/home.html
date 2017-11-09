@@ -12,10 +12,7 @@
     <h1 text-uppercase>Source</h1>
 
     <!-- the text -->
-    <data-source
-            *ngIf="isReady"
-            #dataSource
-            (hasToggle)="onSourceToggle($event)">{{text}}</data-source>
+    <data-source *ngIf="isReady" #dataSource>{{text}}</data-source>
 
 
     <!-- Buttons to change or shuffle the source text -->
@@ -26,7 +23,7 @@
                     ion-button
                     small
                     color="interaction"
-                    (click)="shuffle()"><ion-icon name="shuffle"></ion-icon></button>
+                    (click)="init()"><ion-icon name="shuffle"></ion-icon></button>
         </ion-col>
         <ion-col col-auto>
             <!-- Button to apply on a user text -->
@@ -43,10 +40,7 @@
     <!-- STATS: GLOBAL -->
     <h1>Global Stats</h1>
 
-    <global-stats
-            *ngIf="isReady"
-            [meta]="textOccurrences.meta"
-    ></global-stats>
+    <global-stats *ngIf="isReady" [meta]="textOccurrences.meta"></global-stats>
 
 
 

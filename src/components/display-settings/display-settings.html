@@ -113,19 +113,21 @@
       </ion-row>
     </div>
 
-    <!--&lt;!&ndash; CRITERION: sensitive case &ndash;&gt;-->
-    <!--<div class="settings-sensitive-case"-->
-         <!--has-transition-->
-         <!--data-transition-delay-550-->
-         <!--no-margin>-->
-      <!--<ion-checkbox-->
-              <!--color="interaction"-->
-              <!--margin-right-->
-              <!--[(ngModel)]="sensitiveCase"-->
-              <!--(ionChange)="createStats(true)">-->
-      <!--</ion-checkbox>-->
-      <!--<span>Sensitive case</span>-->
-    <!--</div>-->
+    <!-- CRITERION: sensitive case -->
+    <div class="settings-sensitive-case"
+         has-transition
+         data-transition-delay-550
+         no-margin>
+        <ion-item no-margin no-padding no-lines>
+          <ion-checkbox
+                  color="interaction"
+                  margin-right
+                  [(ngModel)]="sensitiveCase"
+                  (ionChange)="dispatchChange({sensitiveCase: sensitiveCase})">
+          </ion-checkbox>
+          <ion-label>Sensitive case</ion-label>
+        </ion-item>
+    </div>
 
 
     <!-- CLEAR ALL SETTINGS -->

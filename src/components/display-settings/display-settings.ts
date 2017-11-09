@@ -10,7 +10,6 @@ export class DisplaySettingsComponent {
     @Input('displayedWords') displayedWords;
     @Input('minLength') minLength;
     @Input('maxLength') maxLength;
-    @Input('statsRaw') statsRaw;
     @Input('minOccurrences') minOccurrences;
     @Input('maxOccurrences') maxOccurrences;
     @Output() onSettingsChanged = new EventEmitter();
@@ -21,6 +20,7 @@ export class DisplaySettingsComponent {
     rangeLength: any = {lower: 0, upper: 100}; // will be set by min and max with Occurences data
     timesSettingType: string;
     timesSettingNb:number;
+    sensitiveCase:boolean = true;
 
 
     constructor(private changeDetector: ChangeDetectorRef) {
@@ -60,7 +60,7 @@ export class DisplaySettingsComponent {
         this.maxOccurrences = (data && data.maxOccurrences) ? data.maxOccurrences : this.maxOccurrences;
         this.timesSettingType = 'more';
         this.timesSettingNb = this.minOccurrences;
-        this.statsRaw = (data && data.statsRaw) ? data.statsRaw : this.statsRaw;
+        this.sensitiveCase = true;
 
 
 

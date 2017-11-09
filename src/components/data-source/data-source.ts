@@ -5,7 +5,6 @@ import {Component, EventEmitter, Output} from '@angular/core';
     templateUrl: 'data-source.html'
 })
 export class DataSourceComponent {
-    @Output() hasToggle = new EventEmitter();
     readMoreTextOpened:boolean = false;
 
     constructor() {
@@ -14,6 +13,5 @@ export class DataSourceComponent {
 
     toggle(forceClose?:boolean): void {
         this.readMoreTextOpened = forceClose ? false : !this.readMoreTextOpened;
-        this.hasToggle.emit({opened: this.readMoreTextOpened});
     }
 }
