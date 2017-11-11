@@ -1,4 +1,17 @@
 data-source {
+  .read-more-wrap {
+    &.closed .read-more-target {
+      opacity: 0;
+      height:0;
+    }
+    &.opened .read-more-target {
+      margin-top: $content-margin;
+      opacity: 1;
+      border: 1px dashed color($colors, 'interaction');
+      transition: opacity 500ms ease-in-out;
+    }
+
+  }
   .text {
     user-select: text;
     font-family: $font-family-text;

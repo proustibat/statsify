@@ -8,6 +8,89 @@ display-settings {
     margin: 0 0 2px 5px;
   }
 
+
+  .read-more-wrap {
+
+    &.closed .read-more-target {
+      overflow: hidden;
+      max-height: 0;
+      padding:0;
+      border:none;
+
+      ion-searchbar {
+        min-height: 0;
+        height: 0;
+      }
+      .searchbar-input-container,
+      [has-transition] {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+      }
+
+      [has-transition-content] * {
+        opacity: 0;
+      }
+    }
+
+    &.opened .read-more-target{
+      overflow: visible;
+      max-height: 999em;
+      padding: $content-padding;
+      border: 1px dashed color($colors, 'interaction');
+
+      // DISPLAY
+      ion-searchbar {
+        min-height: 44px;
+        height: auto;
+      }
+
+      .searchbar-input-container,
+      [has-transition] {
+        opacity: 1;
+        max-height: 999em;
+        overflow: visible;
+      }
+
+      [has-transition-content] * {
+        opacity: 1;
+      }
+
+      // TRANSITIONS
+      .searchbar-input-container,
+      [has-transition],
+      [has-transition-content] *{
+        transition: opacity 250ms ease-in-out;
+      }
+
+      $max: 1000;
+      $step: 5;
+      @for $i from $step through $max {
+        $value: ($i % $max);
+        @if $i%50 == 0 {
+          $delay: ($i) * 0.6ms;
+          [data-transition-delay-#{$value}] {
+            .searchbar-input-container,
+            &ion-searchbar {
+              transition-delay: $delay;
+            }
+            transition-delay: $delay;
+          }
+          [data-transition-delay-#{$value}-content] {
+            .searchbar-input-container *,
+            &ion-searchbar *{
+              transition-delay: $delay;
+            }
+            * {
+              transition-delay: $delay;
+            }
+          }
+        }
+      }
+    }
+  }
+
+
   .settings-occurrences-times {
     ion-select {
       display: inline-block;
@@ -16,7 +99,6 @@ display-settings {
       max-width: none;
       background: color($colors, 'interaction');
       color: color($colors, 'light');
-
     }
     .select {
       .select-text {
@@ -46,9 +128,5 @@ display-settings {
     ion-item {
       font-size: $font-size-base;
     }
-  }
-
-  [color='danger'] {
-    color:color($colors, 'danger');
   }
 }

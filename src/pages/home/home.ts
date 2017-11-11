@@ -59,9 +59,9 @@ export class HomePage {
 
         this.stats = this.statsRaw;
 
-        if(this.dataSource) {
-            this.dataSource.toggle(true);
-        }
+        // if(this.dataSource) {
+        //     this.dataSource.toggle(true);
+        // }
 
         if(!keepSettings) {
             let limitMax = this.statsRaw.reduce((a,b)=>{

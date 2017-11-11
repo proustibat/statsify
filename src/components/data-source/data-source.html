@@ -30,11 +30,14 @@
 </ion-row>
 
 
-<div class="read-more-wrap read-more-wrap-text" [ngClass]="readMoreTextOpened ? 'opened' : 'closed'" no-margin no-padding margin-vertical>
+<div class="read-more-wrap read-more-wrap-text"
+     [ngClass]="readMoreTextOpened ? 'opened' : 'closed'"
+     no-margin
+     no-padding>
   <div class="read-more-target"
        no-margin
        no-padding
        [ngClass]="readMoreTextOpened ? 'opened' : 'closed'">
-    <p class="text" text-justify no-margin no-padding><ng-content></ng-content></p>
+      <div class="text" text-justify padding><ng-content></ng-content></div>
   </div>
 </div>
