@@ -12,30 +12,7 @@
     <h1 text-uppercase>Source</h1>
 
     <!-- the text -->
-    <data-source *ngIf="isReady" #dataSource>{{text}}</data-source>
-
-
-    <!-- Buttons to change or shuffle the source text -->
-    <ion-row align-items-center justify-item-left>
-        <ion-col col-auto>
-            <!-- Button to apply on a random text -->
-            <button class="data-buttons"
-                    ion-button
-                    small
-                    color="interaction"
-                    (click)="init()"><ion-icon name="shuffle"></ion-icon></button>
-        </ion-col>
-        <ion-col col-auto>
-            <!-- Button to apply on a user text -->
-            <button class="data-buttons"
-                    ion-button
-                    small
-                    color="interaction"
-                    (click)="swap()"><ion-icon name="swap"></ion-icon></button>
-        </ion-col>
-    </ion-row>
-
-
+    <data-source *ngIf="isReady" #dataSource (onShuffle)="init()" (onSwap)="swap()">{{text}}</data-source>
 
     <!-- STATS: GLOBAL -->
     <h1>Global Stats</h1>
@@ -60,13 +37,11 @@
     ></display-settings>
 
 
+
     <!-- The list -->
     <ion-item *ngFor="let item of stats" padding-horizontal>
         <span>{{ item.value }}</span>
         <ion-badge color="dark" item-end>{{ item.number }}</ion-badge>
     </ion-item>
-
-    <!-- Message if list is empty because of the settings -->
-    <p *ngIf="stats && stats.length===0">Your criteria don't match any words.</p>
 
 </ion-content>

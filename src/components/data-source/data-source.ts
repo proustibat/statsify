@@ -6,6 +6,8 @@ import {Component, EventEmitter, Output} from '@angular/core';
 })
 export class DataSourceComponent {
     readMoreTextOpened:boolean = false;
+    @Output() onShuffle = new EventEmitter();
+    @Output() onSwap = new EventEmitter();
 
     constructor() {
         console.log('Hello DataSourceComponent Component');
@@ -13,5 +15,13 @@ export class DataSourceComponent {
 
     toggle(forceClose?:boolean): void {
         this.readMoreTextOpened = forceClose ? false : !this.readMoreTextOpened;
+    }
+
+    shuffle(): void {
+        this.onShuffle.emit();
+    }
+
+    swap(): void {
+        this.onSwap.emit();
     }
 }

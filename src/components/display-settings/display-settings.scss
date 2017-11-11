@@ -1,4 +1,13 @@
 display-settings {
+  .button-md .label,
+  .icon-md +.label {
+    margin-left: 8px;
+  }
+  .button-ios .label,
+  .icon-ios +.label {
+    margin: 0 0 2px 5px;
+  }
+
   .settings-occurrences-times {
     ion-select {
       display: inline-block;
@@ -37,5 +46,9 @@ display-settings {
     ion-item {
       font-size: $font-size-base;
     }
+  }
+
+  [color='danger'] {
+    color:color($colors, 'danger');
   }
 }

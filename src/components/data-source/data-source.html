@@ -1,12 +1,34 @@
-<!-- Button to show the text -->
-<button class="read-more-button data-buttons"
-        ion-button
-        small
-        color="interaction"
-        no-margin
-        (click)="toggle()">
-  {{readMoreTextOpened ? 'Hide source' : 'Show source'}}
-</button>
+<!-- Buttons to see, change or shuffle the source text -->
+<ion-row align-items-center justify-item-left>
+    <ion-col col-auto>
+        <!-- Button to show the text -->
+        <button class="read-more-button data-buttons"
+                ion-button
+                small
+                color="interaction"
+                no-margin
+                (click)="toggle()">
+            <ion-icon name="{{readMoreTextOpened ? 'eye-off' : 'eye'}}"></ion-icon>
+        </button>
+    </ion-col>
+    <ion-col col-auto>
+        <!-- Button to apply on a random text -->
+        <button class="data-buttons"
+                ion-button
+                small
+                color="interaction"
+                (click)="shuffle()"><ion-icon name="shuffle"></ion-icon></button>
+    </ion-col>
+    <ion-col col-auto>
+        <!-- Button to apply on a user text -->
+        <button class="data-buttons"
+                ion-button
+                small
+                color="interaction"
+                (click)="swap()"><ion-icon name="swap"></ion-icon></button>
+    </ion-col>
+</ion-row>
+
 
 <div class="read-more-wrap read-more-wrap-text" [ngClass]="readMoreTextOpened ? 'opened' : 'closed'" no-margin no-padding margin-vertical>
   <div class="read-more-target"

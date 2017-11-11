@@ -1,19 +1,23 @@
 <ion-row align-items-center margin-bottom>
   <ion-col>
+    {{(displayedWords > 1 ?  displayedWords + ' words' : displayedWords.toString() + ' word') + ' displayed'}}
+  </ion-col>
+
+  <ion-col>
     <button class="read-more-button"
             ion-button
             small
             color="interaction"
             no-margin
             (click)="onReadMoreSettings()">
-      {{readMoreSettingsOpened ? 'Close display settings' : 'Show display settings'}}
+      <ion-icon name="{{readMoreSettingsOpened ? 'eye-off' : 'eye'}}"></ion-icon><span class="label">settings</span>
+
     </button>
   </ion-col>
-
-  <ion-col padding-horizontal>
-    {{((displayedWords && displayedWords > 1) ?  displayedWords + ' words' : displayedWords.toString() + ' word') + ' displayed'}}
-  </ion-col>
 </ion-row>
+
+<!-- Message if list is empty because of the settings -->
+<p *ngIf="displayedWords == 0" color="danger"><ion-icon name="warning"></ion-icon><span class="label">Your criteria don't match any words.</span></p>
 
 <div class="read-more-wrap" [ngClass]="readMoreSettingsOpened ? 'opened' : 'closed'">
   <div class="read-more-target"
