@@ -3,15 +3,14 @@
     {{(displayedWords > 1 ?  displayedWords + ' words' : displayedWords.toString() + ' word') + ' displayed'}}
   </ion-col>
 
-  <ion-col>
+  <ion-col *ngIf="!readMoreSettingsOpened">
     <button class="read-more-button"
             ion-button
             small
             color="interaction"
             no-margin
             (click)="onReadMoreSettings()">
-      <ion-icon name="{{readMoreSettingsOpened ? 'eye-off' : 'eye'}}"></ion-icon><span class="label">settings</span>
-
+      <ion-icon name="eye"></ion-icon><span class="label">settings</span>
     </button>
   </ion-col>
 </ion-row>
@@ -135,17 +134,34 @@
     </div>
 
 
-    <!-- CLEAR ALL SETTINGS -->
-    <button class="settings-clear"
-            ion-button
-            small
-            color="interaction"
-            margin-top
-            has-transition
-            data-transition-delay-650
-            (click)="this.reset({clear:true})">
-      Clear all settings
-    </button>
+      <ion-row
+              align-items-center
+              justify-content-between
+              no-margin
+              margin-top
+              has-transition
+              data-transition-delay-650>
+          <ion-col col-auto item-left>
+              <!-- CLEAR ALL SETTINGS -->
+              <button class="settings-clear"
+                      ion-button
+                      small
+                      color="interaction"
+                      (click)="this.reset({clear:true})">
+                  Clear all settings
+              </button>
+          </ion-col>
+          <ion-col col-auto item-right>
+              <button class="read-more-button"
+                      ion-button
+                      small
+                      color="interaction"
+                      no-margin
+                      (click)="onReadMoreSettings()">
+                  <ion-icon name="eye-off"></ion-icon>
+              </button>
+          </ion-col>
+      </ion-row>
 
   </div>
 </div>
