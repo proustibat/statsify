@@ -12,12 +12,11 @@ addons:
 
 
 before_install:
-- npm install -g ionic cordova
+- npm install -g ionic@3.19.0 cordova@8.0.0
+- npm install
 
 install:
-- npm install
 - ionic cordova platform add android
-- ionic cordova prepare android
 
 #before_script:
 #- export DISPLAY=:99.0
