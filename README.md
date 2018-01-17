@@ -1,7 +1,6 @@
 # Stats Text App  [![Twitter Follow](https://img.shields.io/twitter/follow/proustibat.svg?style=social&label=Follow)](https://twitter.com/proustibat) [![GitHub top language](https://img.shields.io/github/languages/top/proustibat/stats-text.svg)](https://github.com/proustibat/stats-text)
 Ionic/Cordova app to get stats about words of a text
 
-
 ------------
 
 
@@ -10,6 +9,50 @@ Ionic/Cordova app to get stats about words of a text
 [![Dependencies Status](https://david-dm.org/proustibat/stats-text/status.svg)](https://david-dm.org/proustibat/stats-text)
 [![DevDependencies Status](https://david-dm.org/proustibat/stats-text/dev-status.svg)](https://david-dm.org/proustibat/stats-text?type=dev)
 [![GitHub license](https://img.shields.io/github/license/proustibat/stats-text.svg)](https://github.com/proustibat/stats-text/blob/master/LICENSE.md)
+
+
+----------------
+
+## Installation
+
+```bash
+git clone git@github.com:proustibat/statsify.git
+cd statsify
+ionic cordova prepare
+```
+
+Answer `Y` to the following question to run `npm install` automatically:
+```bash
+? Looks like a fresh checkout! No ./node_modules directory found. Would you like to install project dependencies? (Y/n) 
+```
+
+## Watching
+
+### In a browser
+```bash
+ionic serve -l
+```
+
+### On a device
+```bash
+ionic cordova run android -l -c -s
+```
+
+### On a simulator
+
+```bash
+ionic cordova emulate ios --target="iPhone-8"
+```
+
+## Build
+```bash
+ionic cordova build ios android
+```
+
+## Contribute
+- Issue Tracker: [https://github.com/proustibat/statsify/issues](https://github.com/proustibat/statsify/issues)
+- Source Code: [https://github.com/proustibat/statsify](https://github.com/proustibat/statsify)
+
 
 ----------------
 
@@ -71,6 +114,7 @@ Issues in this domain mark code where you will get behavior other than what was 
 [![Security remediation effort	](https://sonarcloud.io/api/badges/measure?key=prstbt.statsify&metric=security_remediation_effort)](https://sonarcloud.io/component_measures?id=prstbt.statsify&metric=security_remediation_effort)
 [![Security Rating](https://sonarcloud.io/api/badges/measure?key=prstbt.statsify&metric=security_rating)](https://sonarcloud.io/component_measures?id=prstbt.statsify&metric=security_rating)
 
+-------
 
 ## Dependencies
 
@@ -85,14 +129,15 @@ Issues in this domain mark code where you will get behavior other than what was 
 - [@ionic-native/core](https://github.com/ionic-team/ionic-native): Ionic Native - Native plugins for ionic apps
 - [@ionic-native/splash-screen](https://github.com/ionic-team/ionic-native): Ionic Native - Native plugins for ionic apps
 - [@ionic-native/status-bar](https://github.com/ionic-team/ionic-native): Ionic Native - Native plugins for ionic apps
-- [@ionic/storage](https://github.com/driftyco/ionic-storage): Ionic Storage utility
-- [cordova-android](https://git-wip-us.apache.org/repos/asf/cordova-android.git): cordova-android release
-- [cordova-ios](https://git-wip-us.apache.org/repos/asf/cordova-ios.git): cordova-ios release
+- [@ionic/storage](https://github.com/ionic-team/ionic-storage): Ionic Storage utility
+- [cordova-android](https://github.com/apache/cordova-android): cordova-android release
+- [cordova-ios](https://github.com/apache/cordova-ios): cordova-ios release
 - [cordova-plugin-device](https://github.com/apache/cordova-plugin-device): Cordova Device Plugin
 - [cordova-plugin-ionic-webview](https://github.com/ionic-team/cordova-plugin-ionic-webview): The official Ionic&#39;s WKWebView Engine Plugin
 - [cordova-plugin-splashscreen](https://github.com/apache/cordova-plugin-splashscreen): Cordova Splashscreen Plugin
 - [cordova-plugin-statusbar](https://github.com/apache/cordova-plugin-statusbar): Cordova StatusBar Plugin
 - [cordova-plugin-whitelist](https://github.com/apache/cordova-plugin-whitelist): Cordova Whitelist Plugin
+- [d3](https://github.com/d3/d3): Data-Driven Documents
 - [faker](https://github.com/Marak/Faker.js): Generate massive amounts of fake contextual data
 - [ionic-angular](https://github.com/ionic-team/ionic): A powerful framework for building mobile and progressive web apps with JavaScript and Angular
 - [ionic-plugin-keyboard](https://github.com/driftyco/ionic-plugin-keyboard): Ionic Keyboard Plugin
@@ -105,10 +150,7 @@ Issues in this domain mark code where you will get behavior other than what was 
 ## Dev Dependencies
 
 - [@ionic/app-scripts](https://github.com/ionic-team/ionic-app-scripts): Scripts for Ionic Projects
+- [@types/d3](https://www.github.com/DefinitelyTyped/DefinitelyTyped.git): TypeScript definitions for D3JS d3 standard bundle
+- [@types/node](https://www.github.com/DefinitelyTyped/DefinitelyTyped.git): TypeScript definitions for Node.js
 - [cz-conventional-changelog](https://github.com/commitizen/cz-conventional-changelog): Commitizen adapter following the conventional-changelog format.
 - [typescript](https://github.com/Microsoft/TypeScript): TypeScript is a language for application scale JavaScript development
-
-
-## Contribute
-- Issue Tracker: [https://github.com/FaubourgSimone/ionic-app/issues](https://github.com/proustibat/stats-text/issues)
-- Source Code: [https://github.com/FaubourgSimone/ionic-app](https://github.com/proustibat/stats-text)
