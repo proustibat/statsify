@@ -23,5 +23,5 @@ install:
 #- sh -e /etc/init.d/xvfb start
 
 script:
-- ionic cordova build --release android && bash sonar.sh
+- ionic cordova build android && bash sonar.sh
 #- ionic cordova build android --prod --release
