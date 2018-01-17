@@ -9,6 +9,7 @@
                 no-margin
                 (click)="toggle()">
             <ion-icon name="{{readMoreTextOpened ? 'eye-off' : 'eye'}}"></ion-icon>
+            <span class="label">{{readMoreTextOpened ? 'Hide' : 'Show'}}</span>
         </button>
     </ion-col>
     <ion-col col-auto>
@@ -17,7 +18,10 @@
                 ion-button
                 small
                 color="interaction"
-                (click)="shuffle()"><ion-icon name="shuffle"></ion-icon></button>
+                (click)="shuffle()">
+            <ion-icon name="shuffle"></ion-icon>
+            <span class="label">Random</span>
+        </button>
     </ion-col>
     <ion-col col-auto>
         <!-- Button to apply on a user text -->
@@ -25,7 +29,10 @@
                 ion-button
                 small
                 color="interaction"
-                (click)="swap()"><ion-icon name="swap"></ion-icon></button>
+                (click)="swap()">
+          <ion-icon name="swap"></ion-icon>
+          <span class="label">Change</span>
+        </button>
     </ion-col>
 </ion-row>
 

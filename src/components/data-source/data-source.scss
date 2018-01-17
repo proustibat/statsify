@@ -1,4 +1,9 @@
 data-source {
+
+  .data-buttons .label {
+    padding-left: 1rem;
+  }
+
   .read-more-wrap {
     &.closed .read-more-target {
       opacity: 0;
@@ -10,7 +15,6 @@ data-source {
       border: 1px dashed color($colors, 'interaction');
       transition: opacity 500ms ease-in-out;
     }
-
   }
   .text {
     user-select: text;
