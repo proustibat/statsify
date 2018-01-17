@@ -5,6 +5,7 @@ import * as Faker from 'faker';
 import {PastePage} from "../paste/paste";
 import {DataSourceComponent} from "../../components/data-source/data-source";
 import {DisplaySettingsComponent} from "../../components/display-settings/display-settings";
+import {GraphicsPage} from "../graphics/graphics";
 
 @Component({
     selector: 'page-home',
@@ -25,7 +26,11 @@ export class HomePage {
     @ViewChild('dataSource') dataSource: DataSourceComponent;
     @ViewChild('displaySettings') displaySettings: DisplaySettingsComponent;
 
+    graphicsPage = GraphicsPage;
+    graphicsParams: Object;
+
     constructor(public navCtrl: NavController, public modalCtrl: ModalController, public changeDetector: ChangeDetectorRef) {
+        // this.graphicsParams = {};
     }
 
     ionViewDidLoad(): void {
@@ -128,6 +133,11 @@ export class HomePage {
                 return this.displaySettings.isValidItem(item);
             });
         }
+
+        this.graphicsParams = {
+            stats: this.stats,
+            meta: this.textOccurrences.meta
+        };
 
     }
 

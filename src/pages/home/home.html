@@ -17,8 +17,7 @@
     <!-- STATS: GLOBAL -->
     <h1>Global Stats</h1>
 
-    <global-stats *ngIf="isReady" [meta]="textOccurrences.meta"></global-stats>
-
+    <global-stats *ngIf="isReady" [meta]="textOccurrences.meta" [specials]="{lessUsed:textOccurrences.lessUsed, mostUsed:textOccurrences.mostUsed, smallest:textOccurrences.smallest, longest:textOccurrences.longest}"></global-stats>
 
 
     <!-- STATS: DETAILS -->
@@ -36,12 +35,26 @@
             (onSettingsChanged)="filterList($event)"
     ></display-settings>
 
-
+    <ion-row align-items-center justify-content-start>
+        <ion-col col-auto>
+            <p no-margin no-padding>Wanna visual stats ?&nbsp;</p>
+        </ion-col>
+        <ion-col col-auto>
+            <button ion-button
+                    small
+                    color="interaction"
+                    [navPush]="graphicsPage"
+                    [navParams]="graphicsParams">
+                <ion-icon name="stats"></ion-icon>
+            </button>
+        </ion-col>
+    </ion-row>
 
     <!-- The list -->
     <ion-item *ngFor="let item of stats" padding-horizontal>
         <span>{{ item.value }}</span>
         <ion-badge color="dark" item-end>{{ item.number }}</ion-badge>
     </ion-item>
+
 
 </ion-content>
