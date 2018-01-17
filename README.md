@@ -5,8 +5,8 @@ Ionic/Cordova app to get stats about words of a text
 ------------
 
 
-[![Sonar quality gate](https://sonarcloud.io/api/badges/gate?key=prstbt.stats.text.app)](https://sonarcloud.io/dashboard?id=prstbt.stats.text.app)
-[![Quality Gate Status](https://sonarcloud.io/api/badges/measure?key=prstbt.stats.text.app&metric=alert_status)](https://sonarcloud.io/component_measures?id=prstbt.stats.text.app&metric=alert_status)
+[![Sonar quality gate](https://sonarcloud.io/api/badges/gate?key=prstbt.statsify)](https://sonarcloud.io/dashboard?id=prstbt.statsify)
+[![Quality Gate Status](https://sonarcloud.io/api/badges/measure?key=prstbt.statsify&metric=alert_status)](https://sonarcloud.io/component_measures?id=prstbt.statsify&metric=alert_status)
 [![Dependencies Status](https://david-dm.org/proustibat/stats-text/status.svg)](https://david-dm.org/proustibat/stats-text)
 [![DevDependencies Status](https://david-dm.org/proustibat/stats-text/dev-status.svg)](https://david-dm.org/proustibat/stats-text?type=dev)
 [![GitHub license](https://img.shields.io/github/license/proustibat/stats-text.svg)](https://github.com/proustibat/stats-text/blob/master/LICENSE.md)
@@ -15,61 +15,61 @@ Ionic/Cordova app to get stats about words of a text
 
 ## Dev stats
 ### How simple or complicated the control flow of the application is. 
-[![Complexity](https://sonarcloud.io/api/badges/measure?key=prstbt.stats.text.app&metric=complexity)](https://sonarcloud.io/component_measures?id=prstbt.stats.text.app&metric=complexity) 
-[![Complexity per file](https://sonarcloud.io/api/badges/measure?key=prstbt.stats.text.app&metric=file_complexity)](https://sonarcloud.io/component_measures?id=prstbt.stats.text.app&metric=file_complexity)
-[![Cognitive Complexity](https://sonarcloud.io/api/badges/measure?key=prstbt.stats.text.app&metric=cognitive_complexity)](https://sonarcloud.io/component_measures?id=prstbt.stats.text.app&metric=cognitive_complexity)
+[![Complexity](https://sonarcloud.io/api/badges/measure?key=prstbt.statsify&metric=complexity)](https://sonarcloud.io/component_measures?id=prstbt.statsify&metric=complexity) 
+[![Complexity per file](https://sonarcloud.io/api/badges/measure?key=prstbt.statsify&metric=file_complexity)](https://sonarcloud.io/component_measures?id=prstbt.statsify&metric=file_complexity)
+[![Cognitive Complexity](https://sonarcloud.io/api/badges/measure?key=prstbt.statsify&metric=cognitive_complexity)](https://sonarcloud.io/component_measures?id=prstbt.statsify&metric=cognitive_complexity)
 
 
 ### Documentation & sizes
-[![Lines](https://sonarcloud.io/api/badges/measure?key=prstbt.stats.text.app&metric=lines)](https://sonarcloud.io/component_measures?id=prstbt.stats.text.app&metric=lines) 
-[![Lines of code](https://sonarcloud.io/api/badges/measure?key=prstbt.stats.text.app&metric=ncloc)](https://sonarcloud.io/component_measures?id=prstbt.stats.text.app&metric=ncloc) 
-[![Comment lines](https://sonarcloud.io/api/badges/measure?key=prstbt.stats.text.app&metric=comment_lines)](https://sonarcloud.io/component_measures?id=prstbt.stats.text.app&metric=comment_lines) 
-[![Comments (%)](https://sonarcloud.io/api/badges/measure?key=prstbt.stats.text.app&metric=comment_lines_density)](https://sonarcloud.io/component_measures?id=prstbt.stats.text.app&metric=comment_lines_density)
+[![Lines](https://sonarcloud.io/api/badges/measure?key=prstbt.statsify&metric=lines)](https://sonarcloud.io/component_measures?id=prstbt.statsify&metric=lines) 
+[![Lines of code](https://sonarcloud.io/api/badges/measure?key=prstbt.statsify&metric=ncloc)](https://sonarcloud.io/component_measures?id=prstbt.statsify&metric=ncloc) 
+[![Comment lines](https://sonarcloud.io/api/badges/measure?key=prstbt.statsify&metric=comment_lines)](https://sonarcloud.io/component_measures?id=prstbt.statsify&metric=comment_lines) 
+[![Comments (%)](https://sonarcloud.io/api/badges/measure?key=prstbt.statsify&metric=comment_lines_density)](https://sonarcloud.io/component_measures?id=prstbt.statsify&metric=comment_lines_density)
 
-[![Directories](https://sonarcloud.io/api/badges/measure?key=prstbt.stats.text.app&metric=directories)](https://sonarcloud.io/component_measures?id=prstbt.stats.text.app&metric=directories) 
-[![Files](https://sonarcloud.io/api/badges/measure?key=prstbt.stats.text.app&metric=files)](https://sonarcloud.io/component_measures?id=prstbt.stats.text.app&metric=files)
-[![Classes](https://sonarcloud.io/api/badges/measure?key=prstbt.stats.text.app&metric=classes)](https://sonarcloud.io/component_measures?id=prstbt.stats.text.app&metric=classes) 
-[![Functions](https://sonarcloud.io/api/badges/measure?key=prstbt.stats.text.app&metric=functions)](https://sonarcloud.io/component_measures?id=prstbt.stats.text.app&metric=functions)
+[![Directories](https://sonarcloud.io/api/badges/measure?key=prstbt.statsify&metric=directories)](https://sonarcloud.io/component_measures?id=prstbt.statsify&metric=directories) 
+[![Files](https://sonarcloud.io/api/badges/measure?key=prstbt.statsify&metric=files)](https://sonarcloud.io/component_measures?id=prstbt.statsify&metric=files)
+[![Classes](https://sonarcloud.io/api/badges/measure?key=prstbt.statsify&metric=classes)](https://sonarcloud.io/component_measures?id=prstbt.statsify&metric=classes) 
+[![Functions](https://sonarcloud.io/api/badges/measure?key=prstbt.statsify&metric=functions)](https://sonarcloud.io/component_measures?id=prstbt.statsify&metric=functions)
 
 
 ### Duplications
-[![Duplicated blocks](https://sonarcloud.io/api/badges/measure?key=prstbt.stats.text.app&metric=duplicated_blocks)](https://sonarcloud.io/component_measures?id=prstbt.stats.text.app&metric=duplicated_blocks) 
-[![Duplicated lines](https://sonarcloud.io/api/badges/measure?key=prstbt.stats.text.app&metric=duplicated_lines)](https://sonarcloud.io/component_measures?id=prstbt.stats.text.app&metric=duplicated_lines)
+[![Duplicated blocks](https://sonarcloud.io/api/badges/measure?key=prstbt.statsify&metric=duplicated_blocks)](https://sonarcloud.io/component_measures?id=prstbt.statsify&metric=duplicated_blocks) 
+[![Duplicated lines](https://sonarcloud.io/api/badges/measure?key=prstbt.statsify&metric=duplicated_lines)](https://sonarcloud.io/component_measures?id=prstbt.statsify&metric=duplicated_lines)
 
 
 ### Issues
-[![Open issues](https://sonarcloud.io/api/badges/measure?key=prstbt.stats.text.app&metric=open_issues)](https://sonarcloud.io/component_measures?id=prstbt.stats.text.app&metric=open_issues)
-[![Confirmed issues](https://sonarcloud.io/api/badges/measure?key=prstbt.stats.text.app&metric=confirmed_issues)](https://sonarcloud.io/component_measures?id=prstbt.stats.text.app&metric=confirmed_issues)
-[![Won't fix issues](https://sonarcloud.io/api/badges/measure?key=prstbt.stats.text.app&metric=wont_fix_issues)](https://sonarcloud.io/component_measures?id=prstbt.stats.text.app&metric=wont_fix_issues) 
+[![Open issues](https://sonarcloud.io/api/badges/measure?key=prstbt.statsify&metric=open_issues)](https://sonarcloud.io/component_measures?id=prstbt.statsify&metric=open_issues)
+[![Confirmed issues](https://sonarcloud.io/api/badges/measure?key=prstbt.statsify&metric=confirmed_issues)](https://sonarcloud.io/component_measures?id=prstbt.statsify&metric=confirmed_issues)
+[![Won't fix issues](https://sonarcloud.io/api/badges/measure?key=prstbt.statsify&metric=wont_fix_issues)](https://sonarcloud.io/component_measures?id=prstbt.statsify&metric=wont_fix_issues) 
 
 
 ### Maintainability
 Issues in this domain mark code that will be more difficult to update competently than it should
 
-[![Code smells](https://sonarcloud.io/api/badges/measure?key=prstbt.stats.text.app&metric=code_smells)](https://sonarcloud.io/component_measures?id=prstbt.stats.text.app&metric=code_smells)
-[![SQALE Rating](https://sonarcloud.io/api/badges/measure?key=prstbt.stats.text.app&metric=sqale_rating)](https://sonarcloud.io/component_measures?id=prstbt.stats.text.app&metric=sqale_rating)
+[![Code smells](https://sonarcloud.io/api/badges/measure?key=prstbt.statsify&metric=code_smells)](https://sonarcloud.io/component_measures?id=prstbt.statsify&metric=code_smells)
+[![SQALE Rating](https://sonarcloud.io/api/badges/measure?key=prstbt.statsify&metric=sqale_rating)](https://sonarcloud.io/component_measures?id=prstbt.statsify&metric=sqale_rating)
 
 
 ### Technical debt
 Effort to fix all maintainability issues. The measure is stored in minutes. An 8-hour day is assumed when values are shown in days. (The value of the cost to develop a line of code is 0.06 days)
 
-[![Technical debt](https://sonarcloud.io/api/badges/measure?key=prstbt.stats.text.app&metric=sqale_index)](https://sonarcloud.io/component_measures?id=prstbt.stats.text.app&metric=sqale_index) 
-[![Technical debt ratio](https://sonarcloud.io/api/badges/measure?key=prstbt.stats.text.app&metric=sqale_debt_ratio)](https://sonarcloud.io/component_measures?id=prstbt.stats.text.app&metric=sqale_debt_ratio)
+[![Technical debt](https://sonarcloud.io/api/badges/measure?key=prstbt.statsify&metric=sqale_index)](https://sonarcloud.io/component_measures?id=prstbt.statsify&metric=sqale_index) 
+[![Technical debt ratio](https://sonarcloud.io/api/badges/measure?key=prstbt.statsify&metric=sqale_debt_ratio)](https://sonarcloud.io/component_measures?id=prstbt.statsify&metric=sqale_debt_ratio)
 
 
 ### Reliability
 Issues in this domain mark code where you will get behavior other than what was expected.
 
-[![Bugs](https://sonarcloud.io/api/badges/measure?key=prstbt.stats.text.app&metric=bugs)](https://sonarcloud.io/component_measures?id=prstbt.stats.text.app&metric=bugs)
-[![Reliability remediation effort](https://sonarcloud.io/api/badges/measure?key=prstbt.stats.text.app&metric=reliability_remediation_effort)](https://sonarcloud.io/component_measures?id=prstbt.stats.text.app&metric=reliability_remediation_effort)
-[![Reliability Rating](https://sonarcloud.io/api/badges/measure?key=prstbt.stats.text.app&metric=reliability_rating)](https://sonarcloud.io/component_measures?id=prstbt.stats.text.app&metric=reliability_rating)
+[![Bugs](https://sonarcloud.io/api/badges/measure?key=prstbt.statsify&metric=bugs)](https://sonarcloud.io/component_measures?id=prstbt.statsify&metric=bugs)
+[![Reliability remediation effort](https://sonarcloud.io/api/badges/measure?key=prstbt.statsify&metric=reliability_remediation_effort)](https://sonarcloud.io/component_measures?id=prstbt.statsify&metric=reliability_remediation_effort)
+[![Reliability Rating](https://sonarcloud.io/api/badges/measure?key=prstbt.statsify&metric=reliability_rating)](https://sonarcloud.io/component_measures?id=prstbt.statsify&metric=reliability_rating)
 
 
 ### Security
 
-[![Vulnerabilities](https://sonarcloud.io/api/badges/measure?key=prstbt.stats.text.app&metric=vulnerabilities)](https://sonarcloud.io/component_measures?id=prstbt.stats.text.app&metric=vulnerabilities)
-[![Security remediation effort	](https://sonarcloud.io/api/badges/measure?key=prstbt.stats.text.app&metric=security_remediation_effort)](https://sonarcloud.io/component_measures?id=prstbt.stats.text.app&metric=security_remediation_effort)
-[![Security Rating](https://sonarcloud.io/api/badges/measure?key=prstbt.stats.text.app&metric=security_rating)](https://sonarcloud.io/component_measures?id=prstbt.stats.text.app&metric=security_rating)
+[![Vulnerabilities](https://sonarcloud.io/api/badges/measure?key=prstbt.statsify&metric=vulnerabilities)](https://sonarcloud.io/component_measures?id=prstbt.statsify&metric=vulnerabilities)
+[![Security remediation effort	](https://sonarcloud.io/api/badges/measure?key=prstbt.statsify&metric=security_remediation_effort)](https://sonarcloud.io/component_measures?id=prstbt.statsify&metric=security_remediation_effort)
+[![Security Rating](https://sonarcloud.io/api/badges/measure?key=prstbt.statsify&metric=security_rating)](https://sonarcloud.io/component_measures?id=prstbt.statsify&metric=security_rating)
 
 
 ## Dependencies

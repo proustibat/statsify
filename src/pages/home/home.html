@@ -1,7 +1,7 @@
 <ion-header>
-    <ion-navbar>
-        <ion-title color="primary">
-            Text stats
+    <ion-navbar color="navbar">
+        <ion-title text-uppercase text-center>
+            Statsify
         </ion-title>
     </ion-navbar>
 </ion-header>
@@ -35,20 +35,20 @@
             (onSettingsChanged)="filterList($event)"
     ></display-settings>
 
-    <ion-row align-items-center justify-content-start>
-        <ion-col col-auto>
-            <p no-margin no-padding>Wanna visual stats ?&nbsp;</p>
-        </ion-col>
-        <ion-col col-auto>
-            <button ion-button
-                    small
-                    color="interaction"
-                    [navPush]="graphicsPage"
-                    [navParams]="graphicsParams">
-                <ion-icon name="stats"></ion-icon>
-            </button>
-        </ion-col>
-    </ion-row>
+    <!--<ion-row align-items-center justify-content-start>-->
+        <!--<ion-col col-auto>-->
+            <!--<p no-margin no-padding>Wanna visual stats ?&nbsp;</p>-->
+        <!--</ion-col>-->
+        <!--<ion-col col-auto>-->
+            <!--<button ion-button-->
+                    <!--small-->
+                    <!--color="interaction"-->
+                    <!--[navPush]="graphicsPage"-->
+                    <!--[navParams]="graphicsParams">-->
+                <!--<ion-icon name="stats"></ion-icon>-->
+            <!--</button>-->
+        <!--</ion-col>-->
+    <!--</ion-row>-->
 
     <!-- The list -->
     <ion-item *ngFor="let item of stats" padding-horizontal>
