@@ -1,5 +1,5 @@
-# Stats Text App  [![Twitter Follow](https://img.shields.io/twitter/follow/proustibat.svg?style=social&label=Follow)](https://twitter.com/proustibat) [![GitHub top language](https://img.shields.io/github/languages/top/proustibat/stats-text.svg)](https://github.com/proustibat/stats-text)
-Ionic/Cordova app to get stats about words of a text
+# STATSIFY  [![Twitter Follow](https://img.shields.io/twitter/follow/proustibat.svg?style=social&label=Follow)](https://twitter.com/proustibat) [![GitHub top language](https://img.shields.io/github/languages/top/proustibat/stats-text.svg)](https://github.com/proustibat/stats-text)
+App to get stats about words in a text
 
 ------------
 
