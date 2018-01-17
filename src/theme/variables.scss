@@ -40,6 +40,7 @@ $grid-padding-width:0px;
 // colors so you can add, rename and remove colors as needed.
 // The "primary" color is the only required color in the map.
 
+// for default theme
 $colors: (
         primary:    #091540,
         secondary:  #1D3461,
@@ -48,8 +49,18 @@ $colors: (
         danger:     #BF1A2F,
         light:        #D3E7FF,
         dark:         #ABD2FA,
-
 );
+
+// for dark theme
+//$colors: (
+//  primary:    #D3E7FF,
+//  secondary:  #ABD2FA,
+//  tertiary:       #ffffff,
+//  interaction:      #084887,
+//  danger:     #BF1A2F,
+//  light:        #091540,
+//  dark:         #1D3461,
+//);
 
 $text-color: color($colors, 'secondary');
 
@@ -105,6 +116,7 @@ $toolbar-wp-title-text-color:           $toolbar-ios-title-text-color;
 // so that the above variables are used and Ionic's
 // default are overridden.
 
+//@import "ionic.theme.dark";
 @import "ionic.theme.default";
 
 
