@@ -10,6 +10,7 @@ App to get stats about words in a text
 [![DevDependencies Status](https://david-dm.org/proustibat/stats-text/dev-status.svg)](https://david-dm.org/proustibat/stats-text?type=dev)
 [![GitHub license](https://img.shields.io/github/license/proustibat/stats-text.svg)](https://github.com/proustibat/stats-text/blob/master/LICENSE.md)
 
+<a href='https://play.google.com/store/apps/details?id=prstbt.statsify&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' width='200'/></a>
 
 ----------------
 
