@@ -16,6 +16,7 @@ before_install:
 
 install:
 - npm install
+- ionic cordova platform add android
 - ionic cordova prepare android
 
 #before_script:
