@@ -16,11 +16,12 @@ before_install:
 - npm install
 
 install:
-- ionic cordova platform add android
+- ionic cordova platform add android --nofetch
 
 #before_script:
 #- export DISPLAY=:99.0
 #- sh -e /etc/init.d/xvfb start
 
 script:
-- ionic cordova build --release android && bash sonar.sh
+#- ionic cordova build --release android && bash sonar.sh
+- ionic cordova build android --prod --release
