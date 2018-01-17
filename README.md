@@ -3,7 +3,7 @@ App to get stats about words in a text
 
 ------------
 
-
+[![Build Status](https://travis-ci.org/proustibat/statsify.svg?branch=master)](https://travis-ci.org/proustibat/statsify)
 [![Sonar quality gate](https://sonarcloud.io/api/badges/gate?key=prstbt.statsify)](https://sonarcloud.io/dashboard?id=prstbt.statsify)
 [![Quality Gate Status](https://sonarcloud.io/api/badges/measure?key=prstbt.statsify&metric=alert_status)](https://sonarcloud.io/component_measures?id=prstbt.statsify&metric=alert_status)
 [![Dependencies Status](https://david-dm.org/proustibat/stats-text/status.svg)](https://david-dm.org/proustibat/stats-text)
@@ -12,6 +12,50 @@ App to get stats about words in a text
 
 
 ----------------
+
+## Prerequisites
+Be sure ionic and cordova are installed:
+
+```bash
+cordova -v
+ionic -v
+```
+
+You also needs sdks, run `ionic info` to be sure your system is ok:
+```bash
+// output:
+cli packages: (/Users/proustibat/.nvm/versions/node/v8.9.4/lib/node_modules)
+
+    @ionic/cli-utils  : 1.19.0
+    ionic (Ionic CLI) : 3.19.0
+
+global packages:
+
+    cordova (Cordova CLI) : 8.0.0 
+
+local packages:
+
+    @ionic/app-scripts : 3.1.7
+    Cordova Platforms  : android 7.0.0 ios 4.5.4
+    Ionic Framework    : ionic-angular 3.9.2
+
+System:
+
+    Android SDK Tools : 26.1.1
+    Node              : v8.9.4
+    npm               : 5.6.0 
+    OS                : macOS High Sierra
+    Xcode             : Xcode 9.2 Build version 9C40b 
+
+Environment Variables:
+
+    ANDROID_HOME : /Users/proustibat/Library/Android/sdk/
+
+Misc:
+
+    backend : pro
+
+```
 
 ## Installation
 

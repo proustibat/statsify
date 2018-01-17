@@ -1,6 +1,6 @@
 import {ChangeDetectorRef, Component, ViewChild} from '@angular/core';
 import {ModalController, NavController} from 'ionic-angular';
-import { default as Faker } from 'faker';
+import * as Faker from 'faker';
 import * as Occurences from 'occurences';
 import {PastePage} from "../paste/paste";
 import {DataSourceComponent} from "../../components/data-source/data-source";
