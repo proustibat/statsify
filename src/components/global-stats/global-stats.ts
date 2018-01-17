@@ -1,23 +1,24 @@
 import {Component, Input} from '@angular/core';
 
 @Component({
-    selector: 'global-stats',
-    templateUrl: 'global-stats.html'
+  selector: 'global-stats',
+  templateUrl: 'global-stats.html'
 })
 export class GlobalStatsComponent {
-    @Input('meta') meta;
-    @Input('specials') specials;
+  @Input('meta') meta;
+  @Input('specials') specials;
+  specialsKey: Array<string> = [];
+  refKeyName:Object = {
+    lessUsed: 'Less',
+    mostUsed: 'Most',
+    longest: 'Longest',
+    smallest: 'Smallest'
+  };
 
-    constructor() {
-        console.log('Hello GlobalStatsComponent Component');
-    }
+  constructor() {}
 
-    onSpecialClick(word:string): void {
-        console.log('GlobalStatsComponent.onSpecialClick: ', word);
-    }
-
-    ionViewDidLoad(): void {
-        console.log('ionViewDidLoad: this.meta = ', this.meta);
-        console.log('ionViewDidLoad: this.specials = ', this.specials);
-    }
+  ngAfterViewInit(): void {
+    // setTimeout 0 prevents ExpressionChangedAfterItHasBeenCheckedError
+    setTimeout(() => this.specialsKey = Object.keys( this.specials ), 0);
+  }
 }

@@ -1,6 +1,6 @@
 {
   "name": "statsify",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Get stats about words in a text",
   "author": "Jennifer Proust",
   "license": "GPL-3.0",
@@ -55,6 +55,7 @@
     "@ionic/app-scripts": "^3.1.7",
     "@types/d3": "4.12.0",
     "@types/node": "9.3.0",
+    "commitizen": "^2.9.6",
     "cz-conventional-changelog": "2.1.0",
     "typescript": "^2.6.2"
   },
