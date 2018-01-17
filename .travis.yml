@@ -5,16 +5,16 @@ env:
 language: node_js
 node_js: '8'
 cache: npm
-#addons:
-#  sonarcloud:
-#    organization: proustibat-github
-#    token:
-#      secure: "Q50ZQV/l4rdGz4O0er3fH6lL8M1W2SunpOwNhUn/IUxfUGRpb+95tYUld8sxLI6t71YgzhnmwdWzTc7rxTERb7TTkNBnvQUlmIV9WOgC5UDf5vVilsVcELXI7Z69vf6H2ULU0KnKInrb1tX0jeBkqs5+I5Z8aF40qWT+5kPMtdgqLw1Gm0eGHt3+u9YmtSXghuWfWioEQ4w74KZB2RR9WRRbJzV3tPetK2DyU0NK82MwJzisST46+Jwx4XVn5ZB/PZVA/Z5/6vwd1DV1foUvlV+HJhSjv44NK67cKc78iLS5ZX82XIyJJazk3DbhN28TJdP63vORp3TdD8gCJI6ImpqJoNu2v0SgdAJnQ7dTbabOTSuNxIkXiywEPqa+PveTU4dtO/ULxVfIHqVEfCQD4EoHINO2jQXOg1pfiRQkmB4ibnDzDAQF6cnuybb/LEVI53rJQmVKm99nUVx6k/6wvp5Y1u8u7s1gIEK7AIakkA9ZSdqOsGOjCZdGCSndtinqh3164O0vaP3L7V6uKipFWmoo4/J0ERWs0WznkX5ZAnV0YZmnEJxV9kixEBEHlz38Ln7ARCb9mA57Z24Ku7vf/OBxIaSUxXWXlLrP+YmTlqQTo2ndvdMofCTULddvnxkKmVE39f+XiMoNBE/9ok0AnvRu+ET5eO/8U80enQEfdr8="
+addons:
+  sonarcloud:
+    organization: proustibat-github
+    token:
+      secure: "KJ96NZNY92Md/soJtxyuJKJZ3oEbYuvhTyxFkDkjpbjysQE7nFtnpCIp8Q0zdOqLV0mi8eH6NfyP8lzyo6TW/GyyCuSzn1AlDPYlu9a6DZj8QoVsvw/R8jJhm++pndji4mU4dqk1ip3kiCiXozTsFMqmarbVXIbCfRsWbW9j4Hi39yBVsOh7IBPwvXOXAOj5B1DsY/e0PW19jM37KbNQfFPfmoqW1TX6S8V4Zetg54FgHcn7n1xybC4zED6BaCBazrOd5jMWaYckHIp+10Xl4+Ff8ffX7JSQFNEcSKS021h/VuaJF3apI50C+FHKHsQwvUJfhnjFcdelYbV0OH0797cxtZOwyGveYPAt5nInnVrbfPU7UPb1E+6LNCYX7CtfPt9sZbRzJ2ebMxYv8npwCgQSS1h4WbmA44KCOpju54pOEhFFdnsS6oBzVaG6PpOZmENa8osDFyoT+Ag5NTanttnO0qB0oMpS+lDsMKM/V3ZUlcyvgIVHO1NrNcY4nMwKxYVkNu0sCnjV82oPrIpZ83AYdeKJZgbbyiPz9iaUVeJOHpEXjbiP6sAFI0BSx9RevZXqCKkOPFz6i+EM64tDyZAkIVskKn+pejpYV1CoxIeWL1BXkq/NTJeo1ajeiwfRv/2YznKv1oL7/egvvW9WibqLnBVvP/YXJgmjRnjjig8="
 
 #install:
 #- npm install
 #before_script:
 #- export DISPLAY=:99.0
 #- sh -e /etc/init.d/xvfb start
-#script:
-#- yarn lint:js && bash sonar.sh
+script:
+- bash sonar.sh
