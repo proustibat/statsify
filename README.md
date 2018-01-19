@@ -4,17 +4,8 @@ App to get stats about words in a text
 
 ------------
 
-[![Build Status](https://travis-ci.org/proustibat/statsify.svg?branch=master)](https://travis-ci.org/proustibat/statsify)
-[![Sonar quality gate](https://sonarcloud.io/api/badges/gate?key=prstbt.statsify)](https://sonarcloud.io/dashboard?id=prstbt.statsify)
-[![Quality Gate Status](https://sonarcloud.io/api/badges/measure?key=prstbt.statsify&metric=alert_status)](https://sonarcloud.io/component_measures?id=prstbt.statsify&metric=alert_status)
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/proustibat/statsify.svg)](https://greenkeeper.io/)
-[![Dependencies Status](https://david-dm.org/proustibat/stats-text/status.svg)](https://david-dm.org/proustibat/stats-text)
-[![DevDependencies Status](https://david-dm.org/proustibat/stats-text/dev-status.svg)](https://david-dm.org/proustibat/stats-text?type=dev)
-
-[![GitHub license](https://img.shields.io/github/license/proustibat/stats-text.svg)](https://github.com/proustibat/stats-text/blob/master/LICENSE.md)
-
-<a href='https://play.google.com/store/apps/details?id=prstbt.statsify&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' width='200'/></a>
+| [![google-play-icon](https://user-images.githubusercontent.com/1054387/35104116-2c9addda-fc68-11e7-85fa-91b13423d5f4.png)](https://play.google.com/store/apps/details?id=prstbt.statsify&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1) | [![Build Status](https://travis-ci.org/proustibat/statsify.svg?branch=master)](https://travis-ci.org/proustibat/statsify) [![Sonar quality gate](https://sonarcloud.io/api/badges/gate?key=prstbt.statsify)](https://sonarcloud.io/dashboard?id=prstbt.statsify) [![Open issues](https://sonarcloud.io/api/badges/measure?key=prstbt.statsify&metric=open_issues)](https://sonarcloud.io/component_measures?id=prstbt.statsify&metric=open_issues) [![GitHub license](https://img.shields.io/github/license/proustibat/stats-text.svg)](https://github.com/proustibat/stats-text/blob/master/LICENSE.md) </br> [![Greenkeeper badge](https://badges.greenkeeper.io/proustibat/statsify.svg)](https://greenkeeper.io/) [![Dependencies Status](https://david-dm.org/proustibat/stats-text/status.svg)](https://david-dm.org/proustibat/stats-text) [![DevDependencies Status](https://david-dm.org/proustibat/stats-text/dev-status.svg)](https://david-dm.org/proustibat/stats-text?type=dev) <br/> [![Maintenance](https://img.shields.io/maintenance/yes/2018.svg)](https://github.com/proustibat/statsify/commits/master) [![GitHub last commit](https://img.shields.io/github/last-commit/proustibat/statsify.svg)](https://github.com/proustibat/statsify/commits/master) |
+| :--- | :---- 
 
 ----------------
 
