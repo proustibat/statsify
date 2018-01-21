@@ -52,20 +52,16 @@ export class HomePage {
   }
 
   reset(keepSettings = false): void {
-    this.statsRaw = Object.keys(this.textOccurrences.stats).map((key) => {
+    const statsRawKeys = Object.keys(this.textOccurrences.stats);
+    this.statsRaw = statsRawKeys.map((key) => {
       return { value: key, number: this.textOccurrences.stats[key] };
     });
 
     this.stats = this.statsRaw;
 
     if (!keepSettings) {
-      const limitMax = this.statsRaw.reduce((a, b) => {
-        return a.number > b.number ? a : b;
-      }).number;
-
-      const limitMin = this.statsRaw.reduce((a, b) => {
-        return a.number < b.number ? a : b;
-      }).number;
+      const limitMax = this.getLimit('max');
+      const limitMin = this.getLimit('min');
 
       this.limitsOccurrences = {
         min: limitMin,
@@ -81,6 +77,12 @@ export class HomePage {
       }
       this.filterList();
     }
+  }
+
+  getLimit(type) {
+    return this.statsRaw.reduce((a, b) => {
+      return type === 'min' ? a.number < b.number ? a : b : a.number > b.number ? a : b;
+    }).number;
   }
 
   swap(): void {
