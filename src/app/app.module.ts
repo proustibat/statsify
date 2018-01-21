@@ -12,8 +12,8 @@ import { PastePage } from '../pages/paste/paste';
 import { GraphicsPage } from '../pages/graphics/graphics';
 
 // Components
-import { DataSourceComponent }      from '../components/data-source/data-source';
-import { GlobalStatsComponent }     from '../components/global-stats/global-stats';
+import { DataSourceComponent } from '../components/data-source/data-source';
+import { GlobalStatsComponent } from '../components/global-stats/global-stats';
 import { DisplaySettingsComponent } from '../components/display-settings/display-settings';
 
 @NgModule({

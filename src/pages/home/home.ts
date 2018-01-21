@@ -52,11 +52,7 @@ export class HomePage {
   }
 
   reset(keepSettings = false): void {
-    const statsRawKeys = Object.keys(this.textOccurrences.stats);
-    this.statsRaw = statsRawKeys.map((key) => {
-      return { value: key, number: this.textOccurrences.stats[key] };
-    });
-
+    this.statsRaw = this.resetStatsRaw();
     this.stats = this.statsRaw;
 
     if (!keepSettings) {
@@ -79,21 +75,18 @@ export class HomePage {
     }
   }
 
+  resetStatsRaw() {
+    const statsRawKeys = Object.keys(this.textOccurrences.stats);
+    return statsRawKeys.map((key) => {
+      const n = this.textOccurrences.stats[key];
+      return { value: key , number: n };
+    });
+  }
+
   getLimit(type) {
     return this.statsRaw.reduce((a, b) => {
       return type === 'min' ? a.number < b.number ? a : b : a.number > b.number ? a : b;
     }).number;
-  }
-
-  swap(): void {
-    const modal = this.modalCtrl.create(PastePage);
-    modal.onDidDismiss((data) => {
-      if (data) {
-        this.text = data;
-        this.createStats();
-      }
-    });
-    modal.present();
   }
 
   filterList(data?: any): void {
@@ -145,5 +138,16 @@ export class HomePage {
         return this.displaySettings.isValidItem(item);
       });
     }
+  }
+
+  swap(): void {
+    const modal = this.modalCtrl.create(PastePage);
+    modal.onDidDismiss((data) => {
+      if (data) {
+        this.text = data;
+        this.createStats();
+      }
+    });
+    modal.present();
   }
 }
