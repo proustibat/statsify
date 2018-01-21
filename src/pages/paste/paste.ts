@@ -9,17 +9,13 @@ import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular
 
 export class PastePage {
 
-    text:string;
+    text: string;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl:ViewController) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
     }
 
-    ionViewDidLoad():void {
-        console.log('ionViewDidLoad PastePage');
-    }
-
-    dismiss(validate:boolean = false):void {
-        this.viewCtrl.dismiss( validate ? this.text : null);
+    dismiss(validate = false): void {
+        this.viewCtrl.dismiss(validate ? this.text : null);
     }
 
 }

@@ -7,18 +7,16 @@ import {Component, Input} from '@angular/core';
 export class GlobalStatsComponent {
   @Input('meta') meta;
   @Input('specials') specials;
-  specialsKey: Array<string> = [];
-  refKeyName:Object = {
+  specialsKey: string[] = [];
+  refKeyName: object = {
     lessUsed: 'Less',
     mostUsed: 'Most',
     longest: 'Longest',
     smallest: 'Smallest'
   };
 
-  constructor() {}
-
   ngAfterViewInit(): void {
     // setTimeout 0 prevents ExpressionChangedAfterItHasBeenCheckedError
-    setTimeout(() => this.specialsKey = Object.keys( this.specials ), 0);
+    setTimeout(() => this.specialsKey = Object.keys(this.specials), 0);
   }
 }

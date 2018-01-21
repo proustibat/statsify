@@ -9,12 +9,12 @@ import { MyApp } from './app.component';
 // Pages
 import { HomePage }     from '../pages/home/home';
 import { PastePage }    from '../pages/paste/paste';
-import { GraphicsPage } from "../pages/graphics/graphics";
+import { GraphicsPage } from '../pages/graphics/graphics';
 
 // Components
-import { DataSourceComponent }      from "../components/data-source/data-source";
-import { GlobalStatsComponent }     from "../components/global-stats/global-stats";
-import { DisplaySettingsComponent } from "../components/display-settings/display-settings";
+import { DataSourceComponent }      from '../components/data-source/data-source';
+import { GlobalStatsComponent }     from '../components/global-stats/global-stats';
+import { DisplaySettingsComponent } from '../components/display-settings/display-settings';
 
 @NgModule({
     declarations: [

@@ -5,15 +5,11 @@ import {Component, EventEmitter, Output} from '@angular/core';
     templateUrl: 'data-source.html'
 })
 export class DataSourceComponent {
-    readMoreTextOpened:boolean = false;
+    readMoreTextOpened = false;
     @Output() onShuffle = new EventEmitter();
     @Output() onSwap = new EventEmitter();
 
-    constructor() {
-        console.log('Hello DataSourceComponent Component');
-    }
-
-    toggle(forceClose?:boolean): void {
+    toggle(forceClose?: boolean): void {
         this.readMoreTextOpened = forceClose ? false : !this.readMoreTextOpened;
     }
 
