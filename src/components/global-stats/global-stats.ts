@@ -16,7 +16,10 @@ export class GlobalStatsComponent {
   };
 
   ngAfterViewInit(): void {
+    console.log(this.specials);
     // setTimeout 0 prevents ExpressionChangedAfterItHasBeenCheckedError
-    setTimeout(() => this.specialsKey = Object.keys(this.specials), 0);
+    setTimeout(() => {
+      this.specialsKey = Object.keys(this.specials).filter( k => k !== 'lessUsed' );
+    }, 0);
   }
 }

@@ -1,10 +1,10 @@
 import {Component, ViewChild} from '@angular/core';
 import {ModalController} from 'ionic-angular';
-import * as Faker from 'faker';
 import * as Occurences from 'occurences';
 import {PastePage} from '../paste/paste';
 import {DataSourceComponent} from '../../components/data-source/data-source';
 import {DisplaySettingsComponent} from '../../components/display-settings/display-settings';
+import {RandomTextProvider} from '../../providers/random-text/random-text';
 
 @Component({
   selector: 'page-home',
@@ -25,23 +25,31 @@ export class HomePage {
   @ViewChild('dataSource') dataSource: DataSourceComponent;
   @ViewChild('displaySettings') displaySettings: DisplaySettingsComponent;
 
-  constructor(public modalCtrl: ModalController) {}
+  constructor(public modalCtrl: ModalController, private randomTextProvider: RandomTextProvider) {}
 
-  ionViewDidLoad(): void {
+  ionViewDidLoad() {
     console.log('Hello HomePage');
     this.init();
   }
 
-  init(): void {
-    this.getFakeText();
+  async init() {
+    await this.getFakeText();
     this.createStats();
   }
 
-  getFakeText(): void {
-    this.text = Faker.lorem.paragraph();
+  async getFakeText() {
+    await this.randomTextProvider.getRandom().then( (data: any) => {
+        if (data.error) {
+          console.log(data.error.toString());
+          console.log(data.details);
+        } else {
+          this.text = data;
+        }
+    });
   }
 
   createStats(keepSettings = false, sensitiveCase = true): void {
+    console.log('createStats');
     this.textOccurrences = new Occurences(this.text, {
       biggerThan: 0, // settled in the displayed list
       sensitiveCase, // an instance is created each time the user changes this setting
