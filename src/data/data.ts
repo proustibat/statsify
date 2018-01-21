@@ -8,12 +8,12 @@ export const StatsPieChart: any[] = [
   {party: 'AITS',  electionP: 10}
 ];
 
-export interface Employee {
+export interface IEmployee {
   company: string;
   frequency: number;
 }
 
-export const StatsBarChart: Employee[] = [
+export const StatsBarChart: IEmployee[] = [
   {company: 'Apple', frequency: 100000},
   {company: 'IBM', frequency: 80000},
   {company: 'HP', frequency: 20000},

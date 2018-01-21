@@ -7,8 +7,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 
 // Pages
-import { HomePage }     from '../pages/home/home';
-import { PastePage }    from '../pages/paste/paste';
+import { HomePage } from '../pages/home/home';
+import { PastePage } from '../pages/paste/paste';
 import { GraphicsPage } from '../pages/graphics/graphics';
 
 // Components
