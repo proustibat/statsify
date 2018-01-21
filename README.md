@@ -91,6 +91,8 @@ ionic cordova emulate ios --target="iPhone-8"
 ionic cordova build ios android
 ```
 
+## Documentation is [available here](https://proustibat.github.io/statsify/)
+
 ## Contribute
 - Issue Tracker: [https://github.com/proustibat/statsify/issues](https://github.com/proustibat/statsify/issues)
 - Source Code: [https://github.com/proustibat/statsify](https://github.com/proustibat/statsify)
