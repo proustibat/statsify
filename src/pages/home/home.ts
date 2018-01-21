@@ -63,14 +63,20 @@ export class HomePage {
         min: limitMin,
         max: limitMax
       };
+
       if (this.displaySettings) {
+        const minLength = this.textOccurrences.smallest[0] ? this.textOccurrences.smallest[0].length : 0;
+        const maxLength = this.textOccurrences.longest[0] ? this.textOccurrences.longest[0].length : 0;
+        const minOccurrences = this.limitsOccurrences.min;
+        const maxOccurrences = this.limitsOccurrences.max;
         this.displaySettings.reset({
-          minLength: this.textOccurrences.smallest[0] ? this.textOccurrences.smallest[0].length : 0,
-          maxLength: this.textOccurrences.longest[0] ? this.textOccurrences.longest[0].length : 0,
-          minOccurrences: Number(this.limitsOccurrences.min),
-          maxOccurrences: Number(this.limitsOccurrences.max)
+          minLength,
+          maxLength,
+          minOccurrences,
+          maxOccurrences
         });
       }
+
       this.filterList();
     }
   }
