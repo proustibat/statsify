@@ -1,31 +1,69 @@
 {
-  "extends": "tslint:latest",
+  "extends": "tslint-config-standard",
   "rules": {
-    "indent": [true, "spaces"],
+    "indent": [true, "spaces", 4],
+    "ter-indent": [
+      true, 4
+    ],
+    "no-console": [false],
     "quotemark": [true, "single"],
-    "object-literal-sort-keys": false,
     "trailing-comma": false,
-    "class-name": true,
     "semicolon": [true, "always"],
-    "triple-equals": [true, "allow-null-check"],
     "eofline": true,
-    "jsdoc-format": true,
-    "member-access": false,
-    "no-console": false,
     "whitespace": [true,
       "check-decl",
       "check-operator",
       "check-separator",
-      "check-type"
+      "check-module",
+      "check-type",
+      "check-branch",
+      "check-typecast",
+      "check-preblock"
     ],
-    "variable-name": [
-      "allow-leading-underscore"
+    "space-within-parens": [true, 1],
+    "space-before-function-paren": [true, {"anonymous": "always", "named": "never", "asyncArrow": "ignore"}],
+    "arrow-parens": [false, "ban-single-arg-parens"],
+    "typedef-whitespace": [
+      true,
+      {
+        "call-signature": "nospace",
+        "index-signature": "onespace",
+        "parameter": "nospace",
+        "property-declaration": "nospace",
+        "variable-declaration": "nospace"
+      },
+      {
+        "call-signature": "onespace",
+        "index-signature": "onespace",
+        "parameter": "onespace",
+        "property-declaration": "onespace",
+        "variable-declaration": "onespace"
+      }
     ],
-    "curly": false,
-    "no-reference": false,
-    "no-var-requires": false,
-    "ordered-imports": false,
-    "no-trailing-whitespace": false
-  },
-  "rulesDirectory": []
+    "no-consecutive-blank-lines": [true, 1],
+    "await-promise": false,
+    "no-unused-variable": false,
+    "no-use-before-declare": false,
+    "no-use-before-define": false,
+    "return-undefined": false,
+    "no-floating-promises": false,
+    "no-unnecessary-type-assertion": false,
+    "no-unnecessary-qualifier": false,
+    "strict-type-predicates": false,
+    "no-submodule-imports": [true, "@angular/common/http", "rxjs/add/operator/map"],
+    "no-commented-code": false,
+    "member-ordering": [true, {
+      "order": [
+        "public-static-field",
+        "public-instance-field",
+        "private-static-field",
+        "private-instance-field",
+        "public-constructor",
+        "private-constructor",
+        "public-instance-method",
+        "protected-instance-method",
+        "private-instance-method"
+      ]
+    }]
+  }
 }

@@ -1,6 +1,6 @@
 {
   "name": "statsify",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Get stats about words in a text",
   "author": "Jennifer Proust",
   "license": "GPL-3.0",
@@ -14,14 +14,19 @@
   },
   "private": true,
   "scripts": {
-    "tslint": "./node_modules/.bin/tslint -c tslint.json ./src/**/**/*.ts",
-    "tslint:codeclimate": "./node_modules/.bin/tslint -c tslint-codeclimate.json ./src/**/**/*.ts --fix",
+    "preinstall": "gem install scss_lint",
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve",
-    "typedoc": "./node_modules/.bin/typedoc src --exclude '**/*+(e2e|spec|index).ts'"
+    "all-custom-lint": "npm run lint:stylelint && npm run tslint && npm run tslint:codeclimate && npm run lint:scss",
+    "lint:stylelint": "./node_modules/.bin/stylelint 'src/**/*.scss' --color --fix",
+    "tslint": "./node_modules/.bin/tslint -c tslint.json 'src/**/*.ts' -t verbose --fix -e '**/*+(e2e|spec|index).ts'",
+    "tslint:codeclimate": "./node_modules/.bin/tslint -c tslint-codeclimate.json 'src/**/*.ts' -t verbose --fix -e '**/*+(e2e|spec|index).ts'",
+    "lint:scss": "scss-lint --config .scss-lint.yml",
+    "typedoc": "./node_modules/.bin/typedoc src --exclude '**/*+(e2e|spec|index).ts'",
+    "codeclimate:analyze": "codeclimate analyze --dev -f html > codeclimate-out.html src && open codeclimate-out.html"
   },
   "dependencies": {
     "@angular/common": "5.2.1",
@@ -64,7 +69,11 @@
     "@types/node": "9.3.0",
     "commitizen": "^2.9.6",
     "cz-conventional-changelog": "2.1.0",
+    "stylelint": "^8.4.0",
+    "stylelint-config-standard": "^18.0.0",
+    "tslint-config-standard": "^7.0.0",
     "tslint-ionic-rules": "0.0.13",
+    "tslint-sonarts": "^1.4.0",
     "typedoc": "^0.9.0",
     "typescript": "^2.6.2"
   },

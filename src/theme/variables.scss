@@ -3,17 +3,14 @@
 
 // Font path is used to include ionicons,
 // roboto, and noto sans fonts
-$font-path: "../assets/fonts";
-
+$font-path: '../assets/fonts';
 
 // The app direction is used to include
 // rtl styles in your app. For more info, please see:
 // http://ionicframework.com/docs/theming/rtl-support/
 $app-direction: multi;
 
-
-@import "ionic.globals";
-
+@import 'ionic.globals';
 
 // Shared Variables
 // --------------------------------------------------
@@ -27,10 +24,9 @@ $h2-font-size: 1.6rem;
 $h3-font-size: 1.4rem;
 $h4-font-size: 1.2rem;
 $h5-font-size: 1rem;
-$h6-font-size: 0.8rem;
+$h6-font-size: .8rem;
 
-$grid-padding-width:0px;
-
+$grid-padding-width:0;
 
 // Named Color Variables
 // --------------------------------------------------
@@ -38,18 +34,18 @@ $grid-padding-width:0px;
 // It's highly recommended to change the default colors
 // to match your app's branding. Ionic uses a Sass map of
 // colors so you can add, rename and remove colors as needed.
-// The "primary" color is the only required color in the map.
+// The 'primary' color is the only required color in the map.
 
 // for default theme
 $colors: (
-        primary:    #091540,
-        secondary:  #1D3461,
-        tertiary:       #7692FF,
-        interaction:      #084887,
-        danger:     #BF1A2F,
-        light:        #D3E7FF,
-        dark:         #ABD2FA,
-        navbar: #08264c,
+  primary:    #091540,
+  secondary:  #1d3461,
+  tertiary:       #7692ff,
+  interaction:      #084887,
+  danger:     #bf1a2f,
+  light:        #d3e7ff,
+  dark:         #abd2fa,
+  navbar: #08264c,
 );
 
 // for dark theme
@@ -78,8 +74,6 @@ $searchbar-ios-input-placeholder-color: color($colors, 'interaction');
 
 $toolbar-ios-title-text-color:          color($colors, 'primary');
 
-
-
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
@@ -92,8 +86,6 @@ $searchbar-md-input-text-color:         $searchbar-ios-input-text-color;
 $searchbar-md-input-placeholder-color:  $searchbar-ios-input-placeholder-color;
 
 $toolbar-md-title-text-color:           $toolbar-ios-title-text-color;
-
-
 
 // App Windows Variables
 // --------------------------------------------------
@@ -108,8 +100,6 @@ $searchbar-wp-input-placeholder-color:  $searchbar-ios-input-placeholder-color;
 
 $toolbar-wp-title-text-color:           $toolbar-ios-title-text-color;
 
-
-
 // App Theme
 // --------------------------------------------------
 // Ionic apps can have different themes applied, which can
@@ -117,24 +107,21 @@ $toolbar-wp-title-text-color:           $toolbar-ios-title-text-color;
 // so that the above variables are used and Ionic's
 // default are overridden.
 
-//@import "ionic.theme.dark";
-@import "ionic.theme.default";
-
+//@import 'ionic.theme.dark';
+@import 'ionic.theme.default';
 
 // Ionicons
 // --------------------------------------------------
 // The premium icon font for Ionic. For more info, please see:
 // http://ionicframework.com/docs/ionicons/
 
-@import "ionic.ionicons";
-
+@import 'ionic.ionicons';
 
 // Fonts
 // --------------------------------------------------
 
-@import "roboto";
-@import "noto-sans";
-
+@import 'roboto';
+@import 'noto-sans';
 @import url('https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600,600i,700,700i');
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:500,700&subset=latin-ext');
 @import url('https://fonts.googleapis.com/css?family=Lato&subset=latin-ext');

@@ -1,9 +1,11 @@
 global-stats {
-  .label, .value {
+  .label,
+  .value {
     display: block;
     font-size: 1.1rem;
     line-height: inherit;
   }
+
   .value {
     font-size: 2.5rem;
   }
@@ -14,6 +16,6 @@ global-stats {
 
   .usages .label {
     font-weight: bold;
-    margin-bottom: 0.5rem;
+    margin-bottom: .5rem;
   }
 }

@@ -1,127 +1,122 @@
 display-settings {
   .button-md .label,
-  .icon-md +.label {
+  .icon-md + .label {
     margin-left: 1rem;
   }
+
   .button-ios .label,
-  .icon-ios +.label {
+  .icon-ios + .label {
     margin: 0 0 2px 5px;
   }
 
-  .read-more-wrap {
+  .read-more-wrap.closed .read-more-target {
+    border: 0;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
 
-    &.closed .read-more-target {
-      overflow: hidden;
-      max-height: 0;
-      padding:0;
-      border:none;
-
-      ion-searchbar {
-        min-height: 0;
-        height: 0;
-      }
-      .searchbar-input-container,
-      [has-transition] {
-        max-height: 0;
-        overflow: hidden;
-        opacity: 0;
-      }
-
-      [has-transition-content] * {
-        opacity: 0;
-      }
+    ion-searchbar {
+      height: 0;
+      min-height: 0;
     }
 
-    &.opened .read-more-target{
-      overflow: visible;
+    .searchbar-input-container,
+    [has-transition] {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+    }
+
+    [has-transition-content] * {
+      opacity: 0;
+    }
+  }
+
+  .read-more-wrap.opened .read-more-target {
+    border: 1px dashed color($colors, 'interaction');
+    max-height: 999em;
+    overflow: visible;
+    padding: $content-padding;
+
+    // DISPLAY
+    ion-searchbar {
+      height: auto;
+      min-height: 44px;
+    }
+
+    .searchbar-input-container,
+    [has-transition] {
       max-height: 999em;
-      padding: $content-padding;
-      border: 1px dashed color($colors, 'interaction');
+      opacity: 1;
+      overflow: visible;
+    }
 
-      // DISPLAY
-      ion-searchbar {
-        min-height: 44px;
-        height: auto;
-      }
+    [has-transition-content] * {
+      opacity: 1;
+    }
 
-      .searchbar-input-container,
-      [has-transition] {
-        opacity: 1;
-        max-height: 999em;
-        overflow: visible;
-      }
+    // TRANSITIONS
+    .searchbar-input-container,
+    [has-transition],
+    [has-transition-content] * {
+      transition: opacity 250ms ease-in-out;
+    }
 
-      [has-transition-content] * {
-        opacity: 1;
-      }
+    $max: 1000;
+    $step: 5;
 
-      // TRANSITIONS
-      .searchbar-input-container,
-      [has-transition],
-      [has-transition-content] *{
-        transition: opacity 250ms ease-in-out;
-      }
+    @for $i from $step through $max {
+      $value: ($i % $max);
 
-      $max: 1000;
-      $step: 5;
-      @for $i from $step through $max {
-        $value: ($i % $max);
-        @if $i%50 == 0 {
-          $delay: ($i) * 0.6ms;
-          [data-transition-delay-#{$value}] {
-            .searchbar-input-container,
-            &ion-searchbar {
-              transition-delay: $delay;
-            }
-            transition-delay: $delay;
-          }
-          [data-transition-delay-#{$value}-content] {
-            .searchbar-input-container *,
-            &ion-searchbar *{
-              transition-delay: $delay;
-            }
-            * {
-              transition-delay: $delay;
-            }
-          }
+      @if $i % 50 == 0 {
+        $delay: ($i) * .6ms;
+
+        [data-transition-delay-#{$value}],
+        [data-transition-delay-#{$value}] .searchbar-input-container,
+        [data-transition-delay-#{$value}].ion-searchbar,
+        [data-transition-delay-#{$value}-content],
+        [data-transition-delay-#{$value}-content] .searchbar-input-container *,
+        [data-transition-delay-#{$value}-content].ion-searchbar,
+        [data-transition-delay-#{$value}-content] * {
+          transition-delay: $delay;
         }
       }
     }
   }
-
 
   .settings-occurrences-times {
     ion-select {
-      display: inline-block;
-      padding: 0;
-      margin: 0;
-      max-width: none;
       background: color($colors, 'interaction');
       color: color($colors, 'light');
+      display: inline-block;
+      margin: 0;
+      max-width: none;
+      padding: 0;
     }
+
     .select {
       .select-text {
-        padding: 0 1rem .2rem 1rem;
+        padding: 0 1rem .2rem;
       }
+
       .select-icon {
-        position: absolute;
         height: 19px;
-        width: 100%;
+        position: absolute;
         text-align: center;
+        width: 100%;
 
         .select-icon-inner {
-          position: relative;
+          color: color($colors, 'dark');
           left: calc(50% - 5px);
-          top: 1px;
-          right: 0;
           margin: 0;
           padding: 0;
-          color: color($colors, 'dark');
+          position: relative;
+          right: 0;
+          top: 1px;
         }
       }
     }
   }
-
 
   .settings-sensitive-case {
     ion-item {

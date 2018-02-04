@@ -17,7 +17,9 @@
     "src/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "src/**/*.spec.ts",
+    "src/**/__tests__/*.ts"
   ],
   "compileOnSave": false,
   "atom": {
@@ -26,9 +28,9 @@
   "typedocOptions": {
     "out": "documentation",
     "theme": "minimal",
-    "name": "D3.js Ionic",
+    "name": "Faubourg Simone Mobile App",
     "hideGenerator": "true",
-    "readme": "README.MD",
+    "readme": "README.md",
     "mode": "file",
     "ignoreCompilerErrors": "true",
     "experimentalDecorators": "true",

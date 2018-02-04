@@ -1,23 +1,23 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
-@Component({
+@Component( {
     selector: 'data-source',
     templateUrl: 'data-source.html'
-})
+} )
 export class DataSourceComponent {
-    readMoreTextOpened = false;
-    @Output() onShuffle = new EventEmitter();
-    @Output() onSwap = new EventEmitter();
+    public readMoreTextOpened = false;
+    @Output() public onShuffle = new EventEmitter();
+    @Output() public onSwap = new EventEmitter();
 
-    toggle(forceClose?: boolean): void {
+    public toggle( forceClose?: boolean ): void {
         this.readMoreTextOpened = forceClose ? false : !this.readMoreTextOpened;
     }
 
-    shuffle(): void {
+    public shuffle(): void {
         this.onShuffle.emit();
     }
 
-    swap(): void {
+    public swap(): void {
         this.onSwap.emit();
     }
 }

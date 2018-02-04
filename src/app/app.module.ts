@@ -16,33 +16,33 @@ import { DisplaySettingsComponent } from '../components/display-settings/display
 
 // Providers
 import { CustomProviders, ExternalProviders } from '../providers';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
-@NgModule({
-  declarations: [
-    MyApp,
-    HomePage,
-    PastePage,
-    GraphicsPage,
-    DataSourceComponent,
-    GlobalStatsComponent,
-    DisplaySettingsComponent
-  ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    IonicModule.forRoot(MyApp)
-  ],
-  bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    HomePage,
-    PastePage,
-    GraphicsPage
-  ],
-  providers: [
-    ...CustomProviders,
-    ...ExternalProviders
-  ]
-})
+@NgModule( {
+    bootstrap: [IonicApp],
+    declarations: [
+        MyApp,
+        HomePage,
+        PastePage,
+        GraphicsPage,
+        DataSourceComponent,
+        GlobalStatsComponent,
+        DisplaySettingsComponent
+    ],
+    entryComponents: [
+        MyApp,
+        HomePage,
+        PastePage,
+        GraphicsPage
+    ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        IonicModule.forRoot( MyApp )
+    ],
+    providers: [
+        ...CustomProviders,
+        ...ExternalProviders
+    ]
+} )
 export class AppModule {}

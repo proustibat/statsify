@@ -1,21 +1,21 @@
-import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 
 @IonicPage()
-@Component({
+@Component( {
     selector: 'page-paste',
     templateUrl: 'paste.html',
-})
+} )
 
 export class PastePage {
 
-    text: string;
+    public text: string;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
+    constructor( public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController ) {
     }
 
-    dismiss(validate = false): void {
-        this.viewCtrl.dismiss(validate ? this.text : null);
+    public dismiss( validate = false ): void {
+        this.viewCtrl.dismiss( validate ? this.text : null );
     }
 
 }

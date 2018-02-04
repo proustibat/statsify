@@ -4,12 +4,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class RandomTextProvider {
 
-  constructor(private http: HttpClient) {
-    console.log('Hello RandomTextProvider Provider');
-  }
-  getRandom() {
-    return new Promise((resolve, reject) => {
-      const texts = [
+    private texts = [
         'assets/texts/1661.txt',
         'assets/texts/1661-1.txt',
         'assets/texts/1661-2.txt',
@@ -32,15 +27,21 @@ export class RandomTextProvider {
         'assets/texts/pg5200.txt',
         'assets/texts/pg5200-1.txt',
         'assets/texts/pg5200-2.txt'
-      ];
+    ];
 
-      const url = texts[ Math.floor(Math.random() * texts.length - 1) ];
+    constructor( private http: HttpClient ) {
+        console.log( 'Hello RandomTextProvider Provider' );
+    }
+    public getRandom() {
+        return new Promise( ( resolve, reject ) => {
 
-      this.http.get(url, { responseType: 'text' })
-        .subscribe(
-          res => resolve(res.replace('\n', '')),
-          error => resolve({ error: `Error when loading ${url}:`, details: error })
-        );
-    });
-  }
+            const url = this.texts[ Math.floor( Math.random() * this.texts.length - 1 ) ];
+
+            this.http.get( url, { responseType: 'text' } )
+                .subscribe(
+                    ( res ) => resolve( res.replace( '\n', '' ) ),
+                    ( error ) => resolve( { error: `Error when loading ${url}:`, details: error } )
+                );
+        } );
+    }
 }
