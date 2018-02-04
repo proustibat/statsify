@@ -7,7 +7,6 @@ import { MyApp } from './app.component';
 // Pages
 import { HomePage } from '../pages/home/home';
 import { PastePage } from '../pages/paste/paste';
-import { GraphicsPage } from '../pages/graphics/graphics';
 
 // Components
 import { DataSourceComponent } from '../components/data-source/data-source';
@@ -24,16 +23,14 @@ import { HttpClientModule } from '@angular/common/http';
         MyApp,
         HomePage,
         PastePage,
-        GraphicsPage,
         DataSourceComponent,
         GlobalStatsComponent,
-        DisplaySettingsComponent
+        DisplaySettingsComponent,
     ],
     entryComponents: [
         MyApp,
         HomePage,
         PastePage,
-        GraphicsPage
     ],
     imports: [
         BrowserModule,
