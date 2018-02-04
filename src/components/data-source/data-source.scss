@@ -1,24 +1,25 @@
 data-source {
-
   .data-buttons .label {
     padding-left: 1rem;
   }
 
   .read-more-wrap {
     &.closed .read-more-target {
+      height: 0;
       opacity: 0;
-      height:0;
     }
+
     &.opened .read-more-target {
+      border: 1px dashed color($colors, 'interaction');
       margin-top: $content-margin;
       opacity: 1;
-      border: 1px dashed color($colors, 'interaction');
       transition: opacity 500ms ease-in-out;
     }
   }
+
   .text {
-    user-select: text;
     font-family: $font-family-text;
+    user-select: text;
     white-space: pre-wrap;
   }
 }

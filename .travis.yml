@@ -1,3 +1,5 @@
+dist: trusty
+
 env:
   global:
     - GITHUB_REPO: proustibat/statsify
@@ -7,7 +9,9 @@ env:
 
 language: node_js
 node_js: '8'
-cache: npm
+cache:
+  directories:
+    - node_modules
 
 # create a user token here: https://sonarcloud.io/account/security
 # run `travis encrypt your-token-here`
@@ -25,12 +29,13 @@ install:
   - npm install
   - ionic cordova platform add android
 
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+
 script:
-  - npm run tslint:codeclimate
-  - npm run lint
-  - ionic cordova build android
-  - npm run typedoc
-  - bash sonar.sh
+  - npm run all-custom-lint
+  - ionic cordova build android ios
 
 # Here we want to check out where we are.
 # We only want to update Github Pages if we're building
@@ -38,4 +43,6 @@ script:
 # have to check $TRAVIS_PULL_REQUEST and $TRAVIS_BRANCH.
 # If we are here, we run bash deploy.sh
 after_success:
-  - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && bash deploy.sh
+  - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then npm run typedoc; fi
+  - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then bash sonar.sh; fi
+  - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then bash deploy.sh; fi

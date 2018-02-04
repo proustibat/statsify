@@ -1,0 +1,10 @@
+.sourcemaps
+node_modules
+.scannerwork
+platforms
+plugins
+resources
+www
+*.html
+test-config
+e2e

@@ -1,8 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { StatusBar } from '@ionic-native/status-bar';
+import { NgModule } from '@angular/core';
+import { IonicApp, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 
@@ -16,7 +14,12 @@ import { DataSourceComponent } from '../components/data-source/data-source';
 import { GlobalStatsComponent } from '../components/global-stats/global-stats';
 import { DisplaySettingsComponent } from '../components/display-settings/display-settings';
 
-@NgModule({
+// Providers
+import { CustomProviders, ExternalProviders } from '../providers';
+import { HttpClientModule } from '@angular/common/http';
+
+@NgModule( {
+    bootstrap: [IonicApp],
     declarations: [
         MyApp,
         HomePage,
@@ -26,21 +29,20 @@ import { DisplaySettingsComponent } from '../components/display-settings/display
         GlobalStatsComponent,
         DisplaySettingsComponent
     ],
-    imports: [
-        BrowserModule,
-        IonicModule.forRoot(MyApp)
-    ],
-    bootstrap: [IonicApp],
     entryComponents: [
         MyApp,
         HomePage,
         PastePage,
         GraphicsPage
     ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        IonicModule.forRoot( MyApp )
+    ],
     providers: [
-        StatusBar,
-        SplashScreen,
-        {provide: ErrorHandler, useClass: IonicErrorHandler}
+        ...CustomProviders,
+        ...ExternalProviders
     ]
-})
+} )
 export class AppModule {}

@@ -1,10 +1,10 @@
-languages:
-  JavaScript: true
-  Ruby: true
-  Python: false
-  PHP: false
+version: "2"
 
 exclude_patterns:
+- resources
+- documentation
+- test-config
+- e2e
 - config/**/*
 - node_modules/**/*
 - webpack.*.js
@@ -20,6 +20,30 @@ plugins:
     enabled: true
   stylelint:
       enabled: true
+      checks:
+        CssSyntaxError:
+          enabled: false
+        LeadingZero:
+          enabled: false
+  scss-lint:
+    enabled: true
+    checks:
+      LeadingZero:
+        enabled: false
+      EmptyRule:
+        enabled: false
+      NestingDepth:
+        enabled: true
+        max_depth: 6
+        ignore_parent_selectors: false
+      SelectorDepth:
+        enabled: true
+        max_depth: 5
+      SelectorFormat:
+        enable: true
+        convention: camel_case || hyphenated_lowercase
+      ImportantRule:
+        enabled: false
   csslint:
     enabled: true
     checks:
@@ -29,26 +53,6 @@ plugins:
         enabled: false
   duplication:
     enabled: true
+  sonar-java:
+    enabled: true
 
-version: "2"
-checks:
-  argument-count:
-    enabled: true
-  complex-logic:
-    enabled: true
-  file-lines:
-    enabled: true
-  method-complexity:
-    enabled: true
-  method-count:
-    enabled: true
-  method-lines:
-    enabled: true
-  nested-control-flow:
-    enabled: true
-  return-statements:
-    enabled: true
-  similar-code:
-    enabled: true
-  identical-code:
-    enabled: true
