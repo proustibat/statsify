@@ -65,7 +65,7 @@
     "cz-conventional-changelog": "2.1.0",
     "stylelint": "^8.4.0",
     "stylelint-config-standard": "^18.0.0",
-    "tslint-config-standard": "^7.0.0",
+    "tslint-config-standard": "^8.0.1",
     "tslint-ionic-rules": "0.0.13",
     "typedoc": "^0.10.0",
     "tslint-sonarts": "^1.4.0",
