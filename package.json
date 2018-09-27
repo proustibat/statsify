@@ -63,7 +63,7 @@
     "@types/node": "9.4.1",
     "commitizen": "^2.9.6",
     "cz-conventional-changelog": "2.1.0",
-    "stylelint": "^8.4.0",
+    "stylelint": "^9.6.0",
     "stylelint-config-standard": "^18.0.0",
     "tslint-config-standard": "^7.0.0",
     "tslint-ionic-rules": "0.0.13",
